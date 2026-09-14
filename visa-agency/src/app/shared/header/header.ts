@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { authGuard } from '../../features/utils/guard/guard';
+import { ServiceSession } from '../../features/shared-service/service-session';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './header.sass',
 })
 export class Header {
-
-  
-
+  private readonly serviceSession = inject(ServiceSession);
+  isLoggedIn = this.serviceSession.verifySession();
 }
