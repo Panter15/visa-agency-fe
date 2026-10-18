@@ -1,6 +1,16 @@
-<section id="about"  class="about-section">
-    <h2>Acerca de nosotros</h2>
-    <p>Somos un equipo de expertos en visados con años de experiencia ayudando a personas a obtener sus visas de manera eficiente y segura.</p>
-    <p>Hemos ayudado a cientos de clientes a obtener sus visas con éxito.</p>
-    <p>Contamos con un equipo de profesionales dedicados a brindar el mejor servicio posible.</p>
+<section id="about" class="about-section">
+    <div class="head">
+        <p class="eyebrow">{{ t().about.eyebrow }}</p>
+        <h2 class="section-title title" [appWords]="t().about.title"></h2>
+    </div>
+    <div class="body">
+        <p class="lead">{{ t().about.lead }}</p>
+        <p class="text">{{ t().about.body }}</p>
+        <ul class="values">
+            @for (value of t().about.values; track $index) {
+                <li>{{ value }}</li>
+            }
+        </ul>
+    </div>
+    <app-passport-open class="visual" [label]="t().about.visual" [stampWord]="t().about.stamp" [date]="stampDate()" />
 </section>

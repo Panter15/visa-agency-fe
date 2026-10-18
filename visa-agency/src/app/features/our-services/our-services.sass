@@ -1,0 +1,174 @@
+:host
+  display: block
+
+.services-section
+  padding: clamp(96px, 14vh, 160px) var(--gutter)
+  background: var(--ink)
+  color: var(--paper)
+
+  .eyebrow
+    color: var(--accent-light)
+
+.layout
+  display: grid
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr)
+  gap: clamp(40px, 8vw, 140px)
+
+.aside
+  position: sticky
+  top: calc(var(--header-h) + 40px)
+  align-self: start
+
+.title
+  max-width: 10ch
+
+.tracker
+  display: none
+  align-items: flex-end
+  gap: 12px
+  margin-top: clamp(32px, 6vh, 72px)
+
+.counter
+  display: block
+  height: 1em
+  overflow: hidden
+  font-family: var(--font-display)
+  font-size: clamp(4rem, 9vw, 8rem)
+  line-height: 1
+
+.counter-track
+  display: flex
+  flex-direction: column
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)
+
+  span
+    display: block
+    height: 1em
+
+.total
+  padding-bottom: 0.6em
+  color: rgba(245, 241, 234, 0.5)
+
+.progress
+  position: relative
+  width: 1px
+  height: clamp(4rem, 9vw, 8rem)
+  margin-left: auto
+  background: rgba(245, 241, 234, 0.15)
+
+.progress-fill
+  position: absolute
+  inset: 0
+  background: var(--accent-light)
+  transform-origin: top
+  transform: scaleY(0)
+
+.steps
+  list-style: none
+  margin: 0
+  padding: 0
+
+.step
+  padding: 48px 0
+  border-top: 1px solid rgba(245, 241, 234, 0.15)
+
+  &:first-child
+    border-top: 0
+    padding-top: 0
+
+.step-meta
+  display: flex
+  gap: 14px
+  margin: 0 0 16px
+  font-size: 0.8rem
+  font-weight: 600
+  letter-spacing: 0.16em
+  text-transform: uppercase
+  color: var(--accent-light)
+
+.step-num
+  color: rgba(245, 241, 234, 0.5)
+
+.step-title
+  margin-bottom: 20px
+  font-size: clamp(1.8rem, 3.6vw, 3.2rem)
+
+.step-text
+  max-width: 44ch
+  margin: 0 0 36px
+  color: rgba(245, 241, 234, 0.78)
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem)
+
+.roles
+  display: grid
+  grid-template-columns: repeat(2, minmax(0, 1fr))
+  gap: 24px
+  margin: 0
+
+.role
+  padding-top: 16px
+  border-top: 1px solid rgba(245, 241, 234, 0.2)
+
+  dt
+    margin-bottom: 8px
+    font-size: 0.75rem
+    font-weight: 600
+    letter-spacing: 0.16em
+    text-transform: uppercase
+    color: rgba(245, 241, 234, 0.55)
+
+  dd
+    margin: 0
+    font-size: 1rem
+    line-height: 1.5
+
+.role-us
+  border-top-color: var(--accent-light)
+
+  dt
+    color: var(--accent-light)
+
+.note
+  max-width: 60ch
+  margin: clamp(48px, 10vh, 96px) 0 0
+  padding-top: 32px
+  border-top: 1px solid rgba(245, 241, 234, 0.15)
+  font-family: var(--font-display)
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem)
+  line-height: 1.35
+  color: rgba(245, 241, 234, 0.85)
+
+// Desktop + motion: one full-height pinned stage, steps stacked in the same grid cell
+.is-staged
+  .layout
+    min-height: 100svh
+    align-items: center
+    padding: var(--header-h) 0 40px
+
+  .aside
+    position: static
+    align-self: center
+
+  .tracker
+    display: flex
+
+  .steps
+    display: grid
+
+  .step
+    grid-area: 1 / 1
+    padding: 0
+    border: 0
+
+@media (max-width: 900px)
+  .layout
+    grid-template-columns: 1fr
+    gap: 48px
+
+  .aside
+    position: static
+
+@media (max-width: 520px)
+  .roles
+    grid-template-columns: 1fr
+    gap: 16px

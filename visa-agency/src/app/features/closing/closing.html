@@ -1,0 +1,31 @@
+<section class="closing-section">
+    <h2 class="closing-title" [appWords]="t().closing.title"></h2>
+
+    <!-- Decorative boarding pass: the visitor is the passenger, the US is the destination -->
+    <div class="pass" aria-hidden="true">
+        <div class="pass-main">
+            <p class="pass-label"><app-icon name="plane" />{{ t().closing.pass.label }}</p>
+            <div class="route">
+                <div><span class="k">{{ t().closing.pass.from[0] }}</span><span class="v">{{ t().closing.pass.from[1] }}</span></div>
+                <span class="route-line"></span>
+                <div><span class="k">{{ t().closing.pass.to[0] }}</span><span class="v">{{ t().closing.pass.to[1] }}</span></div>
+            </div>
+            <div class="pass-fields">
+                <div><span class="k">{{ t().closing.pass.passenger[0] }}</span><span class="v">{{ t().closing.pass.passenger[1] }}</span></div>
+                <div><span class="k">{{ t().closing.pass.gate[0] }}</span><span class="v">{{ t().closing.pass.gate[1] }}</span></div>
+                <div><span class="k">{{ t().closing.pass.boarding[0] }}</span><span class="v">{{ t().closing.pass.boarding[1] }}</span></div>
+            </div>
+        </div>
+        <div class="pass-stub">
+            <span class="stub-code">USA</span>
+            <span class="barcode"></span>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a class="btn cta" [href]="i18n.whatsappUrl()" target="_blank" rel="noopener">
+            <app-icon class="btn-icon" name="whatsapp" />{{ t().closing.cta }} <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="note">{{ t().closing.note }}</p>
+    </div>
+</section>

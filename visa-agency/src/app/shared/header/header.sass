@@ -1,5 +1,184 @@
-a.disabled
-  pointer-events: none
-  cursor: not-allowed
-  opacity: 0.5
-  text-decoration: none   
+:host
+  display: block
+
+.site-header
+  position: fixed
+  inset: 0 0 auto 0
+  z-index: 50
+  height: var(--header-h)
+  background: rgba(245, 241, 234, 0.85)
+  backdrop-filter: blur(10px)
+  -webkit-backdrop-filter: blur(10px)
+  border-bottom: 1px solid var(--line)
+
+.nav
+  height: 100%
+  display: flex
+  align-items: center
+  gap: 28px
+  padding: 0 var(--gutter)
+
+  a
+    text-decoration: none
+    font-size: 0.95rem
+    font-weight: 500
+
+.brand
+  display: flex
+  align-items: center
+  gap: 10px
+  margin-right: auto
+  font-family: var(--font-display)
+  font-size: 0.95rem !important
+  text-decoration: none
+  white-space: nowrap
+
+
+.links
+  display: flex
+  align-items: center
+  gap: 28px
+
+  a, .link-button
+    position: relative
+
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      bottom: -4px
+      width: 100%
+      height: 1px
+      background: currentColor
+      transform: scaleX(0)
+      transform-origin: right
+      transition: transform 0.35s ease
+
+    &:hover::after
+      transform: scaleX(1)
+      transform-origin: left
+
+  .menu-cta::after
+    display: none
+
+.link-button
+  padding: 0
+  border: 0
+  background: none
+  color: inherit
+  font: inherit
+  font-size: 0.95rem
+  font-weight: 500
+  cursor: pointer
+
+.menu-cta
+  display: none
+
+.lang
+  display: flex
+  align-items: center
+  gap: 4px
+  padding: 8px 12px
+  border: 1px solid var(--line)
+  border-radius: 999px
+  background: transparent
+  color: var(--ink-soft)
+  font: 600 0.8rem var(--font-body)
+  letter-spacing: 0.08em
+  cursor: pointer
+  transition: border-color 0.3s ease
+
+  &:hover
+    border-color: var(--ink)
+
+  .on
+    color: var(--ink)
+
+  span:not(.on):not(.lang-sep)
+    opacity: 0.45
+
+.lang-sep
+  opacity: 0.3
+
+.burger
+  display: none
+  position: relative
+  width: 44px
+  height: 44px
+  padding: 0
+  border: 0
+  background: transparent
+  cursor: pointer
+
+  span
+    position: absolute
+    left: 11px
+    width: 22px
+    height: 1.5px
+    background: var(--ink)
+    transition: transform 0.35s ease
+
+    &:first-child
+      transform: translateY(-4px)
+
+    &:last-child
+      transform: translateY(4px)
+
+.menu-open .burger span
+  &:first-child
+    transform: rotate(45deg)
+
+  &:last-child
+    transform: rotate(-45deg)
+
+@media (max-width: 900px)
+  .nav
+    gap: 8px
+
+  .bar-cta
+    display: none
+
+  .burger
+    display: block
+
+  // Full-screen menu under the bar. Absolute (not fixed): the header gets a GSAP
+  // transform, which would turn a fixed child into one positioned inside the header.
+  .links
+    position: absolute
+    top: 100%
+    left: 0
+    right: 0
+    height: calc(100svh - var(--header-h))
+    flex-direction: column
+    align-items: flex-start
+    justify-content: center
+    gap: 22px
+    padding: 0 var(--gutter) 48px
+    background: var(--paper)
+    visibility: hidden
+    opacity: 0
+    transform: translateY(-12px)
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s
+
+    &.open
+      visibility: visible
+      opacity: 1
+      transform: none
+      transition: opacity 0.35s ease, transform 0.35s ease
+
+    a, .link-button
+      font-family: var(--font-display)
+      font-size: clamp(2rem, 9vw, 3rem)
+      font-weight: 500
+
+      &::after
+        display: none
+
+    .menu-cta
+      display: inline-flex
+      margin-top: 16px
+      font-family: var(--font-body)
+      font-size: 1rem
+
+  .site-header.menu-open
+    background: var(--paper)

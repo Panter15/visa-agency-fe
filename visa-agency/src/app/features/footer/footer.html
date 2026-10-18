@@ -1,4 +1,6 @@
-<footer>
-    <p>&copy; 2023 Agencia de Visas. Todos los derechos reservados.</p>
-    
+<footer class="site-footer">
+    <app-logo class="brand inverse" [tagline]="true" />
+    <a class="whatsapp" [href]="i18n.whatsappUrl()" target="_blank" rel="noopener">WhatsApp →</a>
+    <p class="disclaimer">{{ t().footer.disclaimer }}</p>
+    <p class="legal">&copy; {{ year }} Easytravel Visa. {{ t().footer.rights }}</p>
 </footer>

@@ -1,0 +1,154 @@
+:host
+  display: block
+
+// Desktop: words + CTA on the left, the boarding pass fills the right
+.closing-section
+  display: grid
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr)
+  grid-template-areas: "title pass" "actions pass"
+  align-content: center
+  gap: clamp(40px, 6vh, 64px) clamp(40px, 6vw, 96px)
+  min-height: 80svh
+  overflow-x: clip
+  padding: clamp(96px, 14vh, 160px) var(--gutter)
+
+.closing-title
+  grid-area: title
+  align-self: end
+  max-width: 15ch
+  font-size: clamp(2.4rem, 6vw, 5.5rem)
+
+// Boarding pass
+.pass
+  grid-area: pass
+  align-self: center
+  justify-self: center
+  display: flex
+  width: min(100%, 600px)
+  rotate: -3deg
+  border-radius: 18px
+  background: var(--ink)
+  color: var(--paper)
+  box-shadow: 0 24px 48px rgba(15, 27, 45, 0.18)
+
+.pass-main
+  flex: 1
+  min-width: 0
+  padding: clamp(20px, 3vw, 32px)
+
+.pass-label
+  display: flex
+  align-items: center
+  gap: 10px
+  margin: 0 0 20px
+  font-size: 0.75rem
+  font-weight: 600
+  letter-spacing: 0.18em
+  text-transform: uppercase
+  color: var(--accent-light)
+
+.route
+  display: flex
+  align-items: center
+  gap: 16px
+  margin-bottom: 22px
+
+  .v
+    font-family: var(--font-display)
+    font-size: clamp(1.15rem, 2.4vw, 1.6rem)
+
+.route-line
+  flex: 1
+  min-width: 24px
+  border-top: 1.5px dashed var(--accent-light)
+
+.pass-fields
+  display: flex
+  flex-wrap: wrap
+  gap: 14px 32px
+
+.k,
+.v
+  display: block
+
+.k
+  margin-bottom: 4px
+  font-size: 0.68rem
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  opacity: 0.6
+
+.v
+  font-weight: 500
+
+// Torn-off stub, separated by a perforated line with two notches
+.pass-stub
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-between
+  gap: 16px
+  padding: clamp(20px, 3vw, 32px) 22px
+  border-left: 2px dashed rgba(245, 241, 234, 0.25)
+
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    left: -11px
+    width: 20px
+    height: 20px
+    border-radius: 50%
+    background: var(--paper)
+
+  &::before
+    top: -10px
+
+  &::after
+    bottom: -10px
+
+.stub-code
+  font-family: var(--font-display)
+  font-size: 1.5rem
+  color: var(--accent-light)
+  writing-mode: vertical-rl
+
+.barcode
+  width: 34px
+  height: 64px
+  background: repeating-linear-gradient(to bottom, var(--paper) 0 2px, transparent 2px 4px, var(--paper) 4px 5px, transparent 5px 8px)
+  opacity: 0.8
+
+.actions
+  grid-area: actions
+  align-self: start
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  gap: 20px 32px
+
+.cta
+  padding: 18px 32px
+  font-size: 1.05rem
+
+.note
+  margin: 0
+  color: var(--ink-soft)
+
+@media (max-width: 900px)
+  .closing-section
+    grid-template-columns: minmax(0, 1fr)
+    grid-template-areas: "title" "pass" "actions"
+
+  .pass
+    justify-self: start
+    rotate: none
+
+@media (max-width: 600px)
+  .pass-stub
+    display: none
+
+  .cta
+    width: 100%
+    justify-content: center

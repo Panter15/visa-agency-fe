@@ -1,0 +1,59 @@
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+
+// Minimal line icons, drawn with currentColor so they take the text color around them.
+@Component({
+  selector: 'app-icon',
+  template: `
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      @switch (name()) {
+        @case ('passport') {
+          <rect x="5" y="2.5" width="14" height="19" rx="2" />
+          <circle cx="12" cy="10" r="3.5" />
+          <path d="M8.5 10h7M12 6.5c1.4 1.2 1.4 5.8 0 7M12 6.5c-1.4 1.2-1.4 5.8 0 7M9 17h6" />
+        }
+        @case ('plane') {
+          <path d="M2.5 15.5 10 13V6a2 2 0 0 1 4 0v7l7.5 2.5v2.2L14 16v3.5l2.2 1.6V23L12 22l-4.2 1v-1.9l2.2-1.6V16l-7.5 1.7z" />
+        }
+        @case ('cap') {
+          <path d="M2 9.5 12 4.5l10 5-10 5z" />
+          <path d="M6 11.5v4.8c0 1.5 2.7 3.2 6 3.2s6-1.7 6-3.2v-4.8M22 9.5v6" />
+        }
+        @case ('globe') {
+          <circle cx="12" cy="12" r="9.5" />
+          <path d="M2.5 12h19M12 2.5c3.2 3 3.2 16 0 19M12 2.5c-3.2 3-3.2 16 0 19" />
+        }
+        @case ('whatsapp') {
+          <path d="M3.5 20.5 4.8 16.3A8.6 8.6 0 1 1 8 19.4z" />
+          <path d="M9.2 7.8c-.5 0-1 .6-1 1.4 0 3.2 3.4 6.6 6.6 6.6.8 0 1.4-.5 1.4-1v-.9l-2-.9-1 1c-1.4-.6-2.6-1.8-3.2-3.2l1-1-.9-2z" />
+        }
+        @case ('alert') {
+          <path d="M10.3 3.9 2.4 17.7A2 2 0 0 0 4.1 20.7h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
+          <path d="M12 9v4.5M12 17h.01" />
+        }
+        @case ('renew') {
+          <path d="M19.5 10.5A8 8 0 0 0 5.2 7.2L4 8.5M4 3.5v5h5" />
+          <path d="M4.5 13.5a8 8 0 0 0 14.3 3.3l1.2-1.3M20 20.5v-5h-5" />
+        }
+      }
+    </svg>
+  `,
+  styles: `
+    :host
+      display: inline-flex
+      width: 1.5em
+      height: 1.5em
+
+    svg
+      width: 100%
+      height: 100%
+      fill: none
+      stroke: currentColor
+      stroke-width: 1.4
+      stroke-linecap: round
+      stroke-linejoin: round
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class Icon {
+  readonly name = input.required<string>();
+}

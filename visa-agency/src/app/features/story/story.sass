@@ -1,0 +1,151 @@
+:host
+  display: block
+
+// Desktop: lines on the left, the illustration stays beside them while reading
+.story-section
+  display: grid
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr)
+  gap: clamp(32px, 5vw, 80px)
+  padding: clamp(96px, 18vh, 200px) var(--gutter)
+
+.line
+  margin: 0 0 0.35em
+  font-family: var(--font-display)
+  font-size: clamp(1.9rem, 4.6vw, 4.2rem)
+  line-height: 1.12
+  letter-spacing: -0.02em
+
+  &.last
+    margin-top: 1em
+    color: var(--accent)
+
+.visual
+  position: sticky
+  top: calc(50svh - 200px)
+  align-self: start
+  width: 100%
+  max-width: 400px
+  justify-self: end
+
+  svg
+    display: block
+    width: 100%
+    height: auto
+    overflow: visible
+
+// The default (no animation) is the calm, finished state
+.paper
+  fill: #fffdf8
+  stroke: var(--line)
+  filter: drop-shadow(0 20px 36px rgba(15, 27, 45, 0.14))
+
+.form-title
+  fill: var(--ink)
+  font-family: var(--font-display)
+  font-size: 24px
+  font-weight: 600
+
+.label
+  fill: #e4dccd
+
+.input
+  fill: none
+  stroke: var(--line)
+  stroke-width: 1.5
+
+.fill
+  fill: var(--accent-light)
+
+.q
+  visibility: hidden
+
+  circle
+    fill: #f6dcd6
+
+  text
+    fill: #9b3b2f
+    font-family: var(--font-body)
+    font-size: 15px
+    font-weight: 700
+
+.ok
+  circle
+    fill: var(--accent)
+
+  path
+    fill: none
+    stroke: #fff
+    stroke-width: 2.4
+    stroke-linecap: round
+    stroke-linejoin: round
+
+.night
+  visibility: hidden
+
+.moon
+  fill: var(--ink)
+
+.moon-cut
+  fill: var(--paper)
+
+.star
+  fill: var(--accent-light)
+
+.pulse
+  visibility: hidden
+  fill: none
+  stroke: #9b3b2f
+  stroke-width: 2.5
+  stroke-linecap: round
+  stroke-linejoin: round
+  stroke-dasharray: 1
+
+// Sign-off at the bottom of the form
+.divider
+  stroke: var(--line)
+  stroke-dasharray: 3 4
+
+.signature
+  fill: none
+  stroke: var(--ink)
+  stroke-width: 1.8
+  stroke-linecap: round
+  stroke-linejoin: round
+  stroke-dasharray: 1
+
+.sign-line
+  stroke: var(--ink-soft)
+  stroke-width: 1
+
+.sign-label
+  fill: var(--ink-soft)
+  font-family: var(--font-body)
+  font-size: 9.5px
+  font-weight: 600
+  letter-spacing: 0.04em
+
+// Approval seal, blue ink like the passport stamp
+.seal
+  fill: none
+  stroke: var(--accent)
+  opacity: 0.9
+
+  .seal-ring
+    stroke-width: 2.5
+
+  .thin
+    stroke-width: 1
+
+  path
+    stroke-width: 3
+    stroke-linecap: round
+    stroke-linejoin: round
+
+@media (max-width: 900px)
+  .story-section
+    grid-template-columns: minmax(0, 1fr)
+
+  .visual
+    position: static
+    justify-self: center
+    max-width: 300px

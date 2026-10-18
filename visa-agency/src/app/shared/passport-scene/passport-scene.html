@@ -1,0 +1,56 @@
+<svg class="scene" viewBox="0 0 440 480" role="img" [attr.aria-label]="label()">
+    <defs>
+        <clipPath id="visa-clip">
+            <rect x="170" y="190" width="250" height="160" rx="12" />
+        </clipPath>
+    </defs>
+
+    <!-- Dotted flight route -->
+    <path class="route" d="M28 120 C 90 20, 300 -10, 420 70" />
+
+    <g class="passport">
+        <rect class="cover" x="40" y="30" width="250" height="340" rx="20" />
+        <rect class="cover-line" x="56" y="46" width="218" height="308" rx="12" />
+        <g class="emblem" transform="translate(165 165)">
+            <circle r="46" />
+            <circle r="36" />
+            <path class="needle" d="M0 -30 L7 0 L0 30 L-7 0 Z" />
+            <path d="M-30 0 L0 -5 L30 0 L0 5 Z" />
+        </g>
+        <text class="cover-title" x="165" y="268" text-anchor="middle">PASAPORTE</text>
+        <text class="cover-sub" x="165" y="290" text-anchor="middle">PASSPORT</text>
+        <g class="chip" transform="translate(147 316)">
+            <rect width="36" height="22" rx="4" />
+            <circle cx="18" cy="11" r="5" />
+        </g>
+    </g>
+
+    <g class="visa">
+        <rect class="visa-card" x="170" y="190" width="250" height="160" rx="12" />
+        <g clip-path="url(#visa-clip)">
+            <path class="guilloche" d="M170 330 Q 240 280 300 320 T 430 300 M170 345 Q 240 295 300 335 T 430 315 M170 315 Q 240 265 300 305 T 430 285" />
+            <rect class="visa-band" x="170" y="190" width="250" height="34" />
+        </g>
+        <text class="visa-word" x="188" y="213">VISA</text>
+        <text class="visa-country" x="404" y="212" text-anchor="end">UNITED STATES OF AMERICA</text>
+        <rect class="photo" x="188" y="236" width="64" height="78" rx="6" />
+        <circle class="person" cx="220" cy="266" r="12" />
+        <path class="person" d="M198 314 c0 -17 10 -27 22 -27 s22 10 22 27 z" />
+        <rect class="field" x="268" y="242" width="118" height="6" rx="3" />
+        <rect class="field" x="268" y="260" width="84" height="6" rx="3" />
+        <rect class="field" x="268" y="278" width="106" height="6" rx="3" />
+        <rect class="field" x="268" y="296" width="64" height="6" rx="3" />
+        <text class="mrz" x="188" y="338">V&lt;USA&lt;&lt;EASYTRAVEL&lt;&lt;VISA&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</text>
+    </g>
+
+    <g class="stamp-wrap" transform="translate(112 398) rotate(-14)">
+        <g class="stamp">
+            <circle class="ring" r="58" />
+            <circle class="ring thin" r="49" />
+            <path id="stamp-arc" d="M -38 0 A 38 38 0 1 1 38 0" fill="none" />
+            <text class="stamp-text"><textPath href="#stamp-arc" startOffset="50%" text-anchor="middle">EASYTRAVEL</textPath></text>
+            <path class="star" d="M0 -10 L3 -3 L10 -3 L4.5 1.5 L6.5 9 L0 4.5 L-6.5 9 L-4.5 1.5 L-10 -3 L-3 -3 Z" />
+            <text class="stamp-date" y="30" text-anchor="middle">{{ year }}</text>
+        </g>
+    </g>
+</svg>

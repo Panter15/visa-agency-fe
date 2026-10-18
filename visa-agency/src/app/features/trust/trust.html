@@ -1,0 +1,56 @@
+<section class="trust-section">
+    <div class="head">
+        <p class="eyebrow">{{ t().trust.eyebrow }}</p>
+        <h2 class="section-title title" [appWords]="t().trust.title"></h2>
+    </div>
+
+    @if (stats().length) {
+        <dl class="stats">
+            @for (stat of stats(); track stat.label) {
+                <div class="stat">
+                    <dt class="stat-value"><span class="stat-num" [attr.data-value]="stat.value" [attr.data-decimals]="stat.decimals">{{ format(stat.value, stat.decimals) }}</span><span class="stat-suffix">{{ stat.suffix }}</span></dt>
+                    <dd class="stat-label">{{ stat.label }}</dd>
+                </div>
+            }
+        </dl>
+        <p class="stats-note"><span class="live-dot" aria-hidden="true"></span>{{ t().trust.statsNote }}</p>
+    }
+
+    <div class="columns">
+        <div class="visas">
+            <h3 class="col-title">{{ t().trust.visasTitle }}</h3>
+            <ul>
+                @for (visa of t().trust.visas; track visa.code) {
+                    <li>
+                        <app-icon class="visa-icon" [name]="visa.icon" />
+                        <span class="visa-code">{{ visa.code }}</span>
+                        <span>{{ visa.label }}</span>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="commitments">
+            <h3 class="col-title">{{ t().trust.commitmentsTitle }}</h3>
+            <ul>
+                @for (item of t().trust.commitments; track $index) {
+                    <li>
+                        <span class="check" aria-hidden="true">✓</span>
+                        <div>
+                            <p class="item-title">{{ item.title }}</p>
+                            <p class="item-text">{{ item.text }}</p>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <aside class="embassy" role="note">
+        <app-icon class="embassy-icon" name="alert" />
+        <div>
+            <p class="embassy-title">{{ t().trust.embassyTitle }}</p>
+            <p class="embassy-text">{{ t().trust.embassy }}</p>
+        </div>
+    </aside>
+</section>

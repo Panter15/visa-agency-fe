@@ -1,0 +1,60 @@
+:host
+  display: block
+
+// Desktop: title with the stamped passport under it on the left, the text on the right
+.about-section
+  display: grid
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr)
+  grid-template-areas: "head body" "visual body"
+  align-items: start
+  gap: 48px clamp(32px, 8vw, 140px)
+  padding: clamp(96px, 16vh, 180px) var(--gutter)
+
+.head
+  grid-area: head
+
+.body
+  grid-area: body
+
+.visual
+  grid-area: visual
+  width: 100%
+  max-width: 460px
+
+.title
+  max-width: 11ch
+
+.lead
+  margin: 0 0 32px
+  font-family: var(--font-display)
+  font-size: clamp(1.5rem, 3vw, 2.4rem)
+  line-height: 1.25
+  letter-spacing: -0.01em
+
+.text
+  max-width: 48ch
+  margin: 0 0 48px
+  color: var(--ink-soft)
+  font-size: 1.1rem
+
+.values
+  display: flex
+  flex-wrap: wrap
+  gap: 12px
+  margin: 0
+  padding: 0
+  list-style: none
+
+  li
+    padding: 10px 20px
+    border: 1px solid var(--line)
+    border-radius: 999px
+    font-size: 0.95rem
+
+@media (max-width: 900px)
+  .about-section
+    grid-template-columns: minmax(0, 1fr)
+    grid-template-areas: "head" "body" "visual"
+
+  .visual
+    justify-self: center
