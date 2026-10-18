@@ -1,10 +1,36 @@
-<section id="services"  class="services-section">
-    <h2>Nuestro proceso</h2>
-    <ul>
-        <li>Asesoría personalizada para la obtención de visas</li>
-        <li>Verificación de documentos y preparación de DS-160</li>
-        <li>Revisión y verificación de tu caso particular</li>
-        <li>Simulación de entrevistas consulares</li>
-        <li>Seguimiento hasta que obtengas tu visa</li>
-    </ul>
+<section id="services" class="services-section">
+    <div class="layout">
+        <aside class="aside">
+            <p class="eyebrow">{{ t().journey.eyebrow }}</p>
+            <h2 class="section-title title" [appWords]="t().journey.title"></h2>
+
+            <div class="tracker" aria-hidden="true">
+                <span class="counter">
+                    <span class="counter-track" [style.transform]="'translateY(' + (-active() * 100 / t().journey.steps.length) + '%)'">
+                        @for (step of t().journey.steps; track $index) {
+                            <span>{{ pad($index + 1) }}</span>
+                        }
+                    </span>
+                </span>
+                <span class="total">/ {{ pad(t().journey.steps.length) }}</span>
+                <span class="progress"><span class="progress-fill"></span></span>
+            </div>
+        </aside>
+
+        <ol class="steps">
+            @for (step of t().journey.steps; track $index) {
+                <li class="step">
+                    <p class="step-meta"><span class="step-num">{{ pad($index + 1) }}</span>{{ step.feeling }}</p>
+                    <h3 class="step-title">{{ step.title }}</h3>
+                    <p class="step-text">{{ step.text }}</p>
+                    <dl class="roles">
+                        <div class="role role-you"><dt>{{ t().journey.you }}</dt><dd>{{ step.you }}</dd></div>
+                        <div class="role role-us"><dt>{{ t().journey.us }}</dt><dd>{{ step.us }}</dd></div>
+                    </dl>
+                </li>
+            }
+        </ol>
+    </div>
+
+    <p class="note">{{ t().journey.note }}</p>
 </section>

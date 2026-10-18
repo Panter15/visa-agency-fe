@@ -1,1 +1,111 @@
-/* You can add global styles to this file, and also import other style files */
+:root
+  --ink: #14284a
+  --ink-soft: #4a5567
+  --paper: #f5f1ea
+  --paper-deep: #ebe4d8
+  --accent: #2f74bf
+  --accent-light: #6aa8e0
+  --line: rgba(15, 27, 45, 0.14)
+  --font-display: 'Fraunces', Georgia, serif
+  --font-body: 'Inter', system-ui, sans-serif
+  --header-h: 76px
+  --gutter: clamp(16px, 5vw, 64px)
+
+@media (max-width: 900px)
+  :root
+    --header-h: 64px
+
+*, *::before, *::after
+  box-sizing: border-box
+
+html
+  scroll-padding-top: var(--header-h)
+
+html.menu-locked
+  overflow: hidden
+
+body
+  margin: 0
+  background: var(--paper)
+  color: var(--ink)
+  font-family: var(--font-body)
+  font-size: 1.0625rem
+  line-height: 1.6
+  -webkit-font-smoothing: antialiased
+  overflow-x: clip
+
+h1, h2, h3
+  font-family: var(--font-display)
+  font-weight: 400
+  line-height: 1.05
+  letter-spacing: -0.02em
+  margin: 0
+  overflow-wrap: break-word
+
+p
+  overflow-wrap: break-word
+
+a
+  color: inherit
+
+/* Shared section pieces */
+.eyebrow
+  margin: 0 0 18px
+  font-size: 0.8rem
+  font-weight: 600
+  letter-spacing: 0.16em
+  text-transform: uppercase
+  color: var(--accent)
+
+.section-title
+  font-size: clamp(2.1rem, 6vw, 4.5rem)
+
+.btn
+  display: inline-flex
+  align-items: center
+  gap: 10px
+  padding: 12px 22px
+  border-radius: 999px
+  background: var(--ink)
+  color: var(--paper)
+  font-weight: 500
+  text-decoration: none
+  white-space: nowrap
+  transition: background 0.3s ease, color 0.3s ease
+
+  &:hover
+    background: var(--accent)
+
+  &:hover .btn-arrow
+    transform: translateX(4px)
+
+.btn-arrow
+  transition: transform 0.3s ease
+
+.btn .btn-icon
+  width: 1.25em
+  height: 1.25em
+
+/* Word-mask reveal used by the component */
+.word-mask
+  display: inline-block
+  overflow: hidden
+  vertical-align: top
+  padding-bottom: 0.1em
+  margin-bottom: -0.1em
+
+.word
+  display: inline-block
+
+/* Lenis smooth scroll (from lenis/dist/lenis.css) */
+html.lenis, html.lenis body
+  height: auto
+
+.lenis:not(.lenis-autoToggle).lenis-stopped
+  overflow: clip
+
+.lenis.lenis-smooth [data-lenis-prevent]
+  overscroll-behavior: contain
+
+.lenis.lenis-smooth iframe
+  pointer-events: none

@@ -1,0 +1,88 @@
+:host
+  display: block
+
+.home-section
+  position: relative
+  min-height: 100svh
+  display: grid
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr)
+  align-items: center
+  gap: clamp(32px, 5vw, 80px)
+  padding: calc(var(--header-h) + 48px) var(--gutter) 112px
+
+.copy
+  display: flex
+  flex-direction: column
+  gap: clamp(28px, 5vh, 48px)
+
+.headline
+  max-width: 13ch
+  font-size: clamp(2.6rem, 7vw, 6.5rem)
+
+.visual
+  width: 100%
+  max-width: 480px
+  justify-self: end
+
+.intro
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  gap: 24px 48px
+
+.subtext
+  max-width: 42ch
+  margin: 0
+  color: var(--ink-soft)
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem)
+
+.cta
+  padding: 16px 28px
+
+.scroll-hint
+  position: absolute
+  left: var(--gutter)
+  bottom: 32px
+  display: flex
+  align-items: center
+  gap: 12px
+  font-size: 0.75rem
+  letter-spacing: 0.16em
+  text-transform: uppercase
+  color: var(--ink-soft)
+
+  span
+    width: 1px
+    height: 40px
+    background: var(--ink-soft)
+    transform-origin: top
+    animation: hint 2s ease-in-out infinite
+
+@keyframes hint
+  0%
+    transform: scaleY(0)
+  50%
+    transform: scaleY(1)
+  100%
+    transform: scaleY(0)
+    transform-origin: bottom
+
+@media (max-width: 900px)
+  .home-section
+    grid-template-columns: 1fr
+
+  .visual
+    max-width: 340px
+    justify-self: center
+
+@media (max-width: 600px)
+  .visual
+    max-width: 260px
+
+  .cta
+    width: 100%
+    justify-content: center
+
+@media (prefers-reduced-motion: reduce)
+  .scroll-hint span
+    animation: none

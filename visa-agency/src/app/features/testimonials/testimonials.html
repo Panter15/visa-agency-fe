@@ -1,12 +1,28 @@
-<section id="testimonials" class="testimonials-section">
-    <h2>Lo que dicen nuestros clientes</h2>
-    <p>Aún no hay testimonios disponibles. ¡Pronto compartiremos las experiencias de nuestros clientes!</p>
-    <blockquote>
-        <p>"Excelente servicio. Me ayudaron a obtener mi visa de manera rápida y eficiente."</p>
-        <cite>- Juan Pérez</cite>
-    </blockquote>
-    <blockquote>
-        <p>"Profesionales y comprometidos. Recomendados sin duda."</p>
-        <cite>- María García</cite>
-    </blockquote>
-</section>
+@if (stories().length) {
+    <section id="testimonials" class="testimonials-section">
+        <div class="head">
+            <p class="eyebrow">{{ t().testimonials.eyebrow }}</p>
+            <h2 class="section-title title" [appWords]="t().testimonials.title"></h2>
+        </div>
+        <div class="quotes">
+            @for (story of stories(); track story.id) {
+                <blockquote>
+                    @if (story.rating) {
+                        <span class="rating" [attr.aria-label]="story.rating + ' ' + t().testimonials.rating">
+                            @for (star of [1, 2, 3, 4, 5]; track star) {
+                                <span aria-hidden="true" [class.on]="star <= story.rating">★</span>
+                            }
+                        </span>
+                    }
+                    <p>“{{ story.content }}”</p>
+                    <footer>
+                        <cite>{{ story.clientName }}</cite>
+                        @if (story.visaType) {
+                            <span class="visa-tag">{{ story.visaType }}</span>
+                        }
+                    </footer>
+                </blockquote>
+            }
+        </div>
+    </section>
+}

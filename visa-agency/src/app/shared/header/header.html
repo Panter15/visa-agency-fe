@@ -1,10 +1,33 @@
-<header>
-    <nav>
-        <a routerLink="/"><img src="assets/images/logo.png" alt="Norte Visa Logo">Norte Visa</a>
-        <a routerLink="/" fragment="testimonials">Testimonials</a>
-        <a routerLink="/" fragment="about">About</a>
-        <a href="https://wa.me/15551234567" target="_blank" rel="noopener">Chat on WhatsApp</a>
-        <a routerLink="/admin-perspective" [class.disabled]="!isLoggedIn">Admin</a>
-        <a routerLink="/login">Login</a>
+<header class="site-header" [class.menu-open]="menuOpen()">
+    <nav class="nav" [attr.aria-label]="t().nav.label">
+        <a class="brand" routerLink="/" (click)="closeMenu()" aria-label="Easytravel Visa"><app-logo /></a>
+
+        <div class="links" id="site-menu" [class.open]="menuOpen()">
+            <a routerLink="/" fragment="services" (click)="closeMenu()">{{ t().nav.process }}</a>
+            <a routerLink="/" fragment="about" (click)="closeMenu()">{{ t().nav.about }}</a>
+            @if (hasStories()) {
+                <a routerLink="/" fragment="testimonials" (click)="closeMenu()">{{ t().nav.stories }}</a>
+            }
+            @if (isAdmin()) {
+                <a routerLink="/admin-perspective" (click)="closeMenu()">{{ t().nav.admin }}</a>
+                <button type="button" class="link-button" (click)="logout()">{{ t().nav.logout }}</button>
+            } @else {
+                <a routerLink="/login" (click)="closeMenu()">{{ t().nav.login }}</a>
+            }
+            <a class="btn menu-cta" [href]="i18n.whatsappUrl()" target="_blank" rel="noopener">{{ t().nav.whatsapp }} <span class="btn-arrow" aria-hidden="true">→</span></a>
+        </div>
+
+        <button type="button" class="lang" (click)="i18n.toggle()" [attr.aria-label]="t().nav.switchTo">
+            <span [class.on]="i18n.lang() === 'es'">ES</span>
+            <span class="lang-sep" aria-hidden="true">/</span>
+            <span [class.on]="i18n.lang() === 'en'">EN</span>
+        </button>
+
+        <a class="btn bar-cta" [href]="i18n.whatsappUrl()" target="_blank" rel="noopener">{{ t().nav.whatsapp }} <span class="btn-arrow" aria-hidden="true">→</span></a>
+
+        <button type="button" class="burger" (click)="toggleMenu()" aria-controls="site-menu"
+                [attr.aria-expanded]="menuOpen()" [attr.aria-label]="t().nav.menu">
+            <span></span><span></span>
+        </button>
     </nav>
 </header>
