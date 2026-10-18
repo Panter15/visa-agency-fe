@@ -26,7 +26,7 @@ export class Trust {
       { value: stats.peopleHelped, decimals: 0, suffix: '', label: label(labels.peopleHelped, stats.peopleHelped) },
       { value: stats.yearsExperience ?? 0, decimals: 0, suffix: '', label: label(labels.yearsExperience, stats.yearsExperience ?? 0) },
       { value: stats.countries, decimals: 0, suffix: '', label: label(labels.countries, stats.countries) },
-      { value: stats.averageRating ?? 0, decimals: 1, suffix: '/5', label: label(labels.averageRating, 2) },
+      { value: stats.averageRating ?? 0, decimals: 1, suffix: '/5', label: labels.averageRating },
     ].filter(stat => stat.value > 0);
   });
 

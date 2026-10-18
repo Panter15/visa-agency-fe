@@ -1,8 +1,8 @@
 import { computed, effect, Injectable, signal } from '@angular/core';
 import { COPY, Lang } from './copy';
 
-// Placeholder number — replace with the agency's real WhatsApp number (digits only, with country code).
-const WHATSAPP_NUMBER = '15551234567';
+// Agency WhatsApp: +52 646 187 4375 (Mexico, Ensenada). Digits only, with country code, as wa.me expects.
+const WHATSAPP_NUMBER = '526461874375';
 
 const STORAGE_KEY = 'lang';
 
