@@ -1,0 +1,54 @@
+name: Deploy to GitHub Pages
+
+# Every push to main publishes the site at https://panter15.github.io/visa-agency-fe/
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # allows a manual run from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment at a time; a newer push replaces a pending one
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: visa-agency
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: visa-agency/package-lock.json
+
+      - run: npm ci
+
+      # Pages serves the site under /visa-agency-fe/, so assets must be loaded from there
+      - run: npx ng build --base-href /visa-agency-fe/
+
+      # Angular routes (e.g. /login) are handled in the browser: serve index.html for unknown paths
+      - run: cp dist/visa-agency/browser/index.html dist/visa-agency/browser/404.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: visa-agency/dist/visa-agency/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
