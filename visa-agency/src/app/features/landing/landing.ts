@@ -1,4 +1,4 @@
-import { afterNextRender, Component, DestroyRef, inject, NgZone } from '@angular/core';
+import { afterNextRender, Component, DestroyRef, inject } from '@angular/core';
 import Lenis from 'lenis';
 import { Header } from '../../shared/header/header';
 import { Home } from '../home/home';
@@ -20,23 +20,20 @@ import { gsap, MOTION_OK, ScrollTrigger } from '../../shared/motion/motion';
 export class Landing {
   constructor() {
     const destroyRef = inject(DestroyRef);
-    const zone = inject(NgZone);
 
     // Smooth scroll, driven by GSAP's ticker so ScrollTrigger stays in sync with Lenis.
     afterNextRender(() => {
       if (!matchMedia(MOTION_OK).matches) return;
 
-      zone.runOutsideAngular(() => {
-        const lenis = new Lenis();
-        lenis.on('scroll', ScrollTrigger.update);
-        const tick = (time: number) => lenis.raf(time * 1000);
-        gsap.ticker.add(tick);
-        gsap.ticker.lagSmoothing(0);
+      const lenis = new Lenis();
+      lenis.on('scroll', ScrollTrigger.update);
+      const tick = (time: number) => lenis.raf(time * 1000);
+      gsap.ticker.add(tick);
+      gsap.ticker.lagSmoothing(0);
 
-        destroyRef.onDestroy(() => {
-          gsap.ticker.remove(tick);
-          lenis.destroy();
-        });
+      destroyRef.onDestroy(() => {
+        gsap.ticker.remove(tick);
+        lenis.destroy();
       });
     });
   }

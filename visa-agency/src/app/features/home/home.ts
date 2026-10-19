@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { WhatsappGate } from '../../shared/consent/whatsapp-gate';
 import { I18n } from '../../shared/i18n/i18n';
 import { Icon } from '../../shared/icon/icon';
 import { gsap, useMotion } from '../../shared/motion/motion';
@@ -7,7 +8,7 @@ import { Words } from '../../shared/words/words';
 
 @Component({
   selector: 'app-home',
-  imports: [Words, PassportScene, Icon],
+  imports: [Words, PassportScene, Icon, WhatsappGate],
   templateUrl: './home.html',
   styleUrl: './home.sass',
 })

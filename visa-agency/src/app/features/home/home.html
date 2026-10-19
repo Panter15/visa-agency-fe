@@ -4,8 +4,8 @@
         <h1 class="headline" [appWords]="t().hero.title"></h1>
         <div class="intro">
             <p class="subtext">{{ t().hero.text }}</p>
-            <a class="btn cta" [href]="i18n.whatsappUrl()" target="_blank" rel="noopener">
-                <app-icon class="btn-icon" name="whatsapp" />{{ t().hero.cta }} <span class="btn-arrow" aria-hidden="true">→</span>
+            <a class="btn cta" appWhatsappGate [href]="i18n.whatsappUrl()" target="_blank" rel="noopener">
+                <app-icon class="btn-icon" name="chat" />{{ t().hero.cta }} <span class="btn-arrow" aria-hidden="true">→</span>
             </a>
         </div>
     </div>

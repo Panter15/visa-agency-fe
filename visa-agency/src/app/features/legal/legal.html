@@ -1,0 +1,16 @@
+<app-header></app-header>
+<main class="legal">
+    <a class="back" routerLink="/">← {{ t().legal.back }}</a>
+    <h1>{{ doc().title }}</h1>
+    <p class="updated">{{ t().legal.updated }} {{ versionDate() }} · v{{ doc().version }}</p>
+    <p class="intro">{{ doc().intro }}</p>
+    @for (section of doc().sections; track section.heading) {
+        <section>
+            <h2>{{ section.heading }}</h2>
+            @for (paragraph of section.body; track $index) {
+                <p>{{ paragraph }}</p>
+            }
+        </section>
+    }
+</main>
+<app-footer></app-footer>

@@ -33,11 +33,10 @@ jobs:
 
       - run: npm ci
 
-      # Pages serves the site under /visa-agency-fe/, so assets must be loaded from there
-      - run: npx ng build --base-href /visa-agency-fe/
-
-      # Angular routes (e.g. /login) are handled in the browser: serve index.html for unknown paths
-      - run: cp dist/visa-agency/browser/index.html dist/visa-agency/browser/404.html
+      # Pages serves the site under /visa-agency-fe/, so assets must be loaded from there.
+      # `npm run build` also runs scripts/spa-routes.mjs: a folder per route (real 200s), 404.html for unknown
+      # paths (still the Angular app, which shows its NotFound page), and /3rdpartylicenses.txt.
+      - run: npm run build -- --base-href /visa-agency-fe/
 
       - uses: actions/upload-pages-artifact@v3
         with:

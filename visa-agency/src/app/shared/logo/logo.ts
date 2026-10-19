@@ -46,6 +46,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     :host(.inverse)
       --logo-dark: #f5f1ea
       --logo-mid: #6aa8e0
+      --logo-text: #6aa8e0
 
 
     .dots
@@ -86,7 +87,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     .line
       white-space: nowrap
       font-weight: 500
-      color: var(--logo-mid)
+      // Darker than --logo-mid so the letters pass WCAG AA (5.25:1 on paper).
+      color: var(--logo-text, #2866a8)
 
       b
         font-weight: 800

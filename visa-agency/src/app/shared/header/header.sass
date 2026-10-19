@@ -91,14 +91,11 @@
   &:hover
     border-color: var(--ink)
 
+  // Active language: darker + underlined (not color alone). Inactive stays at --ink-soft, 6.7:1 on paper.
   .on
     color: var(--ink)
-
-  span:not(.on):not(.lang-sep)
-    opacity: 0.45
-
-.lang-sep
-  opacity: 0.3
+    text-decoration: underline
+    text-underline-offset: 4px
 
 .burger
   display: none
