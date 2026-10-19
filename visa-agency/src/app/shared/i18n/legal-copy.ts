@@ -14,7 +14,7 @@ export const LEGAL_ES = {
   back: 'Volver al inicio',
   updated: 'Versión vigente desde el',
   privacy: {
-    version: '2026-10-19',
+    version: '2026-10-20',
     title: 'Aviso de privacidad',
     intro: 'Tu información es parte de tu historia, y la cuidamos como tal. Aquí te explicamos qué datos usamos, para qué y cómo puedes controlarlos.',
     sections: [
@@ -23,6 +23,7 @@ export const LEGAL_ES = {
       ] },
       { heading: 'Qué datos tratamos', body: [
         'Cuando nos escribes por WhatsApp: tu nombre, tu número de teléfono y lo que nos compartas en tus mensajes.',
+        'Algunas preguntas frecuentes por WhatsApp las responde un asistente automático, que solo compara tu mensaje con nuestras respuestas preparadas; no toma decisiones sobre ti. Escribe «asesor» en cualquier momento para hablar con una persona.',
         'Si contratas una asesoría: datos de identificación y contacto, historial laboral, académico, familiar y de viajes, y los datos patrimoniales o financieros que tu solicitud requiera (por ejemplo, ingresos, empleo o bienes). Para los datos patrimoniales o financieros te pedimos tu consentimiento expreso.',
         'Datos sensibles: el formulario DS-160 incluye preguntas que pueden revelar datos sensibles, como información de salud. Solo los tratamos si tú decides compartirlos para tu solicitud y con tu consentimiento expreso y por escrito.',
         'Cuando aceptas nuestros documentos guardamos una constancia: la fecha y hora, tu dirección IP, tu navegador y la versión del documento que aceptaste.',
@@ -34,7 +35,7 @@ export const LEGAL_ES = {
       { heading: 'Con quién los compartimos', body: [
         'No transferimos tus datos a terceros sin tu consentimiento, salvo en los casos que la ley permite, como el requerimiento de una autoridad competente.',
         'La información de tu solicitud de visa se captura en los sistemas oficiales del gobierno de Estados Unidos solo con tu autorización y para el trámite que tú solicitas.',
-        'Nuestros proveedores de alojamiento y almacenamiento tratan los datos únicamente por nuestra cuenta y bajo nuestras instrucciones.',
+        'Nuestros proveedores de alojamiento y almacenamiento, y WhatsApp (Meta), que transmite los mensajes de nuestro asistente automático, tratan los datos únicamente por nuestra cuenta y bajo nuestras instrucciones.',
       ] },
       { heading: 'Cómo limitar el uso de tus datos', body: [
         'Puedes pedirnos en cualquier momento que limitemos el uso o la divulgación de tus datos escribiendo a [CORREO DE CONTACTO]. Si no quieres recibir mensajes nuestros, dínoslo por el mismo medio o por WhatsApp y dejaremos de enviarlos.',
@@ -45,6 +46,7 @@ export const LEGAL_ES = {
       ] },
       { heading: 'Cuánto tiempo los conservamos', body: [
         'Conservamos tus datos mientras dure la relación contigo y, después, solo durante el plazo que las leyes exigen o para atender posibles responsabilidades. Al terminar ese plazo los bloqueamos y los suprimimos.',
+        'Los mensajes que recibe nuestro asistente automático se borran de nuestros sistemas a los 30 días.',
       ] },
       { heading: 'Cómo protegemos tus datos', body: [
         'El sitio funciona solo con conexión cifrada (HTTPS). El acceso a la información de los clientes está restringido al personal autorizado, las contraseñas se guardan cifradas y las constancias de aceptación no pueden modificarse.',
@@ -140,7 +142,7 @@ export const LEGAL_EN: LegalCopy = {
   back: 'Back to home',
   updated: 'Version in force since',
   privacy: {
-    version: '2026-10-19',
+    version: '2026-10-20',
     title: 'Privacy notice',
     intro: 'Your information is part of your story, and we look after it that way. Here is what data we use, why, and how you stay in control of it.',
     sections: [
@@ -149,6 +151,7 @@ export const LEGAL_EN: LegalCopy = {
       ] },
       { heading: 'What data we process', body: [
         'When you message us on WhatsApp: your name, your phone number and whatever you share in your messages.',
+        'Some frequent questions on WhatsApp are answered by an automatic assistant, which only compares your message with our prepared answers; it makes no decisions about you. Type "agent" at any time to talk to a person.',
         'If you hire our advisory service: identification and contact details, work, education, family and travel history, and the financial or property information your application requires (for example income, employment or assets). We ask for your express consent for financial or property data.',
         'Sensitive data: the DS-160 form includes questions that can reveal sensitive data, such as health information. We only process it if you choose to share it for your application, with your express written consent.',
         'When you accept our documents we keep a record: the date and time, your IP address, your browser and the version of the document you accepted.',
@@ -160,7 +163,7 @@ export const LEGAL_EN: LegalCopy = {
       { heading: 'Who we share it with', body: [
         'We do not transfer your data to third parties without your consent, except where the law allows it, such as a request from a competent authority.',
         'Your visa application details are entered into the official US government systems only with your authorization and for the application you request.',
-        'Our hosting and storage providers process data only on our behalf and under our instructions.',
+        'Our hosting and storage providers, and WhatsApp (Meta), which carries the messages of our automatic assistant, process data only on our behalf and under our instructions.',
       ] },
       { heading: 'How to limit the use of your data', body: [
         'You can ask us at any time to limit the use or disclosure of your data by writing to [CONTACT EMAIL]. If you do not want to receive messages from us, tell us the same way or on WhatsApp and we will stop.',
@@ -171,6 +174,7 @@ export const LEGAL_EN: LegalCopy = {
       ] },
       { heading: 'How long we keep it', body: [
         'We keep your data while our relationship lasts and afterwards only for the period the law requires or to handle possible liabilities. At the end of that period we block it and then delete it.',
+        'Messages received by our automatic assistant are deleted from our systems after 30 days.',
       ] },
       { heading: 'How we protect your data', body: [
         'The site only works over an encrypted connection (HTTPS). Access to client information is restricted to authorized staff, passwords are stored encrypted and acceptance records cannot be modified.',
