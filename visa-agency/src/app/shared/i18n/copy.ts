@@ -1,3 +1,5 @@
+import { LEGAL_EN, LEGAL_ES } from './legal-copy';
+
 export type Lang = 'es' | 'en';
 
 const es = {
@@ -139,6 +141,48 @@ const es = {
   footer: {
     disclaimer: 'Easytravel Visa es una agencia de asesoría privada. No somos una entidad del gobierno de Estados Unidos.',
     rights: 'Todos los derechos reservados.',
+    privacy: 'Aviso de privacidad',
+    terms: 'Términos y condiciones',
+    refund: 'Cancelación y reembolsos',
+  },
+  legal: LEGAL_ES,
+  // Shown before opening WhatsApp the first time (and again when a document version changes).
+  consentGate: {
+    title: 'Antes de escribirnos',
+    text: 'Para atenderte por WhatsApp necesitamos que aceptes nuestros documentos. Puedes leerlos completos antes de continuar.',
+    terms: 'Acepto los',
+    termsLink: 'Términos y condiciones',
+    privacy: 'He leído el',
+    privacyLink: 'Aviso de privacidad',
+    privacyEnd: 'y acepto el tratamiento de mis datos',
+    opensNewTab: '(se abre en otra pestaña)',
+    cancel: 'Cancelar',
+    continue: 'Continuar a WhatsApp',
+  },
+  // Hiring acceptance page (/aceptar/:token), reached from the private link the agency sends.
+  acceptance: {
+    title: 'Confirma tu contratación',
+    loading: 'Cargando…',
+    invalid: 'Este enlace no es válido, ya se usó o expiró. Pídenos uno nuevo por WhatsApp.',
+    service: 'Servicio',
+    intro: 'Lee cada documento y marca cada casilla. Guardamos la fecha, la hora y la versión de lo que aceptas como constancia.',
+    nameLabel: 'Tu nombre completo',
+    nameHint: 'Tal como aparece en tu identificación oficial.',
+    terms: 'Acepto los',
+    privacy: 'He leído y acepto el',
+    refund: 'Acepto la',
+    read: 'Leer',
+    submit: 'Aceptar y confirmar',
+    sending: 'Enviando…',
+    error: 'No pudimos guardar tu aceptación. Revisa tu conexión e inténtalo de nuevo.',
+    doneTitle: 'Listo, quedó registrada tu aceptación.',
+    doneText: 'Fecha y hora',
+    print: 'Imprimir o guardar como PDF',
+  },
+  notFound: {
+    title: 'Esta página no existe.',
+    text: 'Puede que el enlace esté mal escrito o que la página ya no esté disponible. Tu camino sigue en el inicio.',
+    cta: 'Volver al inicio',
   },
 };
 
@@ -280,6 +324,46 @@ const en: Copy = {
   footer: {
     disclaimer: 'Easytravel Visa is a private advisory agency. We are not a United States government entity.',
     rights: 'All rights reserved.',
+    privacy: 'Privacy notice',
+    terms: 'Terms and conditions',
+    refund: 'Cancellation and refunds',
+  },
+  legal: LEGAL_EN,
+  consentGate: {
+    title: 'Before you message us',
+    text: 'To help you on WhatsApp we need you to accept our documents. You can read them in full before continuing.',
+    terms: 'I accept the',
+    termsLink: 'Terms and conditions',
+    privacy: 'I have read the',
+    privacyLink: 'Privacy notice',
+    privacyEnd: 'and accept the processing of my data',
+    opensNewTab: '(opens in a new tab)',
+    cancel: 'Cancel',
+    continue: 'Continue to WhatsApp',
+  },
+  acceptance: {
+    title: 'Confirm your hiring',
+    loading: 'Loading…',
+    invalid: 'This link is not valid, was already used or has expired. Ask us for a new one on WhatsApp.',
+    service: 'Service',
+    intro: 'Read each document and tick each box. We keep the date, time and version of what you accept as a record.',
+    nameLabel: 'Your full name',
+    nameHint: 'As it appears on your official ID.',
+    terms: 'I accept the',
+    privacy: 'I have read and accept the',
+    refund: 'I accept the',
+    read: 'Read',
+    submit: 'Accept and confirm',
+    sending: 'Sending…',
+    error: 'We could not save your acceptance. Check your connection and try again.',
+    doneTitle: 'Done, your acceptance has been recorded.',
+    doneText: 'Date and time',
+    print: 'Print or save as PDF',
+  },
+  notFound: {
+    title: 'This page does not exist.',
+    text: 'The link may be mistyped, or the page may no longer be available. Your path continues on the home page.',
+    cta: 'Back to home',
   },
 };
 

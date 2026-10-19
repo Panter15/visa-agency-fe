@@ -4,11 +4,12 @@ import { ServiceSession } from '../../features/shared-service/service-session';
 import { PublicData } from '../api/public-data';
 import { Logo } from '../logo/logo';
 import { I18n } from '../i18n/i18n';
+import { WhatsappGate } from '../consent/whatsapp-gate';
 import { gsap, ScrollTrigger, useMotion } from '../motion/motion';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, Logo],
+  imports: [RouterLink, Logo, WhatsappGate],
   templateUrl: './header.html',
   styleUrl: './header.sass',
 })

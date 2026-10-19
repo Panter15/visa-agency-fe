@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /login
+Disallow: /admin-perspective
+Disallow: /aceptar/
+
+# TODO(deploy): replace TU-DOMINIO.com with the real domain
+Sitemap: https://TU-DOMINIO.com/sitemap.xml

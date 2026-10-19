@@ -1,4 +1,4 @@
-import { afterNextRender, DestroyRef, effect, ElementRef, inject, Injector, NgZone } from '@angular/core';
+import { afterNextRender, DestroyRef, effect, ElementRef, inject, Injector } from '@angular/core';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { I18n } from '../i18n/i18n';
@@ -36,26 +36,24 @@ export function useMotion(
 ) {
   const host = inject<ElementRef<HTMLElement>>(ElementRef);
   const injector = inject(Injector);
-  const zone = inject(NgZone);
   const i18n = inject(I18n);
   let mm: gsap.MatchMedia | undefined;
+  let destroyed = false;
 
-  const run = () =>
-    afterNextRender(
-      () =>
-        // GSAP ticks every frame — keep it out of Angular change detection.
-        zone.runOutsideAngular(() => {
-          mm?.revert();
-          mm = gsap.matchMedia();
-          mm.add({ motion: MOTION_OK, desktop: DESKTOP }, ctx => {
-            const { motion, desktop } = ctx.conditions as { motion: boolean; desktop: boolean };
-            if (motion) return setup(host.nativeElement, { desktop });
-            return;
-          }, host.nativeElement);
-          queueRefresh();
-        }),
-      { injector },
-    );
+  const build = () => {
+    if (destroyed) return;
+    mm?.revert();
+    mm = gsap.matchMedia();
+    mm.add({ motion: MOTION_OK, desktop: DESKTOP }, ctx => {
+      const { motion, desktop } = ctx.conditions as { motion: boolean; desktop: boolean };
+      if (motion) return setup(host.nativeElement, { desktop });
+      return;
+    }, host.nativeElement);
+    queueRefresh();
+  };
+
+  // setTimeout gives each component its own task, so the browser can paint and handle taps in between.
+  const run = () => afterNextRender(() => setTimeout(build), { injector });
 
   effect(() => {
     if (replayOnLanguage) i18n.lang();
@@ -63,7 +61,10 @@ export function useMotion(
     run();
   });
 
-  inject(DestroyRef).onDestroy(() => mm?.revert());
+  inject(DestroyRef).onDestroy(() => {
+    destroyed = true;
+    mm?.revert();
+  });
 }
 
 export { gsap, ScrollTrigger };

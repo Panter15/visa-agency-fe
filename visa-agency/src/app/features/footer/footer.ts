@@ -1,10 +1,12 @@
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { WhatsappGate } from '../../shared/consent/whatsapp-gate';
 import { I18n } from '../../shared/i18n/i18n';
 import { Logo } from '../../shared/logo/logo';
 
 @Component({
   selector: 'app-footer',
-  imports: [Logo],
+  imports: [Logo, RouterLink, WhatsappGate],
   templateUrl: './footer.html',
   styleUrl: './footer.sass',
 })

@@ -15,9 +15,10 @@ export class Story {
     useMotion((root, { desktop }) => {
       const section = root.querySelector('.story-section');
 
-      // Words light up one by one as the user reads down the section
-      gsap.fromTo('.w', { opacity: 0.12 }, {
-        opacity: 1,
+      // Words light up one by one as the user reads down the section.
+      // They start grey (3.3:1, still readable as large text) and end in their own CSS color.
+      gsap.from('.w', {
+        color: '#80868f',
         ease: 'none',
         stagger: 0.1,
         scrollTrigger: { trigger: section, start: 'top 70%', end: 'bottom 75%', scrub: true },

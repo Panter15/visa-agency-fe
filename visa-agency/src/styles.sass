@@ -5,9 +5,11 @@
   --paper-deep: #ebe4d8
   --accent: #2f74bf
   --accent-light: #6aa8e0
+  // Darker accent for small text and behind light text: 5.25:1 on paper (WCAG AA). --accent is only 4.27:1.
+  --accent-text: #2866a8
   --line: rgba(15, 27, 45, 0.14)
-  --font-display: 'Fraunces', Georgia, serif
-  --font-body: 'Inter', system-ui, sans-serif
+  --font-display: 'Fraunces Variable', Georgia, serif
+  --font-body: 'Inter Variable', system-ui, sans-serif
   --header-h: 76px
   --gutter: clamp(16px, 5vw, 64px)
 
@@ -48,6 +50,16 @@ p
 a
   color: inherit
 
+/* Text for screen readers only */
+.sr-only
+  position: absolute
+  width: 1px
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  clip-path: inset(50%)
+  white-space: nowrap
+
 /* Shared section pieces */
 .eyebrow
   margin: 0 0 18px
@@ -55,7 +67,7 @@ a
   font-weight: 600
   letter-spacing: 0.16em
   text-transform: uppercase
-  color: var(--accent)
+  color: var(--accent-text)
 
 .section-title
   font-size: clamp(2.1rem, 6vw, 4.5rem)
@@ -74,7 +86,7 @@ a
   transition: background 0.3s ease, color 0.3s ease
 
   &:hover
-    background: var(--accent)
+    background: var(--accent-text)
 
   &:hover .btn-arrow
     transform: translateX(4px)

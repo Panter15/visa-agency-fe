@@ -1,6 +1,6 @@
 <header class="site-header" [class.menu-open]="menuOpen()">
     <nav class="nav" [attr.aria-label]="t().nav.label">
-        <a class="brand" routerLink="/" (click)="closeMenu()" aria-label="Easytravel Visa"><app-logo /></a>
+        <a class="brand" routerLink="/" (click)="closeMenu()"><app-logo /></a>
 
         <div class="links" id="site-menu" [class.open]="menuOpen()">
             <a routerLink="/" fragment="services" (click)="closeMenu()">{{ t().nav.process }}</a>
@@ -11,19 +11,18 @@
             @if (isAdmin()) {
                 <a routerLink="/admin-perspective" (click)="closeMenu()">{{ t().nav.admin }}</a>
                 <button type="button" class="link-button" (click)="logout()">{{ t().nav.logout }}</button>
-            } @else {
-                <a routerLink="/login" (click)="closeMenu()">{{ t().nav.login }}</a>
             }
-            <a class="btn menu-cta" [href]="i18n.whatsappUrl()" target="_blank" rel="noopener">{{ t().nav.whatsapp }} <span class="btn-arrow" aria-hidden="true">→</span></a>
+            <a class="btn menu-cta" appWhatsappGate [href]="i18n.whatsappUrl()" target="_blank" rel="noopener">{{ t().nav.whatsapp }} <span class="btn-arrow" aria-hidden="true">→</span></a>
         </div>
 
-        <button type="button" class="lang" (click)="i18n.toggle()" [attr.aria-label]="t().nav.switchTo">
+        <button type="button" class="lang" (click)="i18n.toggle()">
             <span [class.on]="i18n.lang() === 'es'">ES</span>
             <span class="lang-sep" aria-hidden="true">/</span>
             <span [class.on]="i18n.lang() === 'en'">EN</span>
+            <span class="sr-only">{{ t().nav.switchTo }}</span>
         </button>
 
-        <a class="btn bar-cta" [href]="i18n.whatsappUrl()" target="_blank" rel="noopener">{{ t().nav.whatsapp }} <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <a class="btn bar-cta" appWhatsappGate [href]="i18n.whatsappUrl()" target="_blank" rel="noopener">{{ t().nav.whatsapp }} <span class="btn-arrow" aria-hidden="true">→</span></a>
 
         <button type="button" class="burger" (click)="toggleMenu()" aria-controls="site-menu"
                 [attr.aria-expanded]="menuOpen()" [attr.aria-label]="t().nav.menu">

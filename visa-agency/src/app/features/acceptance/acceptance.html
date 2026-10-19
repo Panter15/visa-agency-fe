@@ -1,0 +1,74 @@
+<app-header></app-header>
+<main class="acceptance">
+    <h1>{{ t().acceptance.title }}</h1>
+
+    @switch (state()) {
+        @case ('loading') {
+            <p class="muted" role="status">{{ t().acceptance.loading }}</p>
+        }
+        @case ('invalid') {
+            <p class="notice" role="alert">{{ t().acceptance.invalid }}</p>
+        }
+        @case ('done') {
+            <section class="done" role="status">
+                <h2>{{ t().acceptance.doneTitle }}</h2>
+                <p><strong>{{ fullName() }}</strong></p>
+                <p>{{ t().acceptance.doneText }}: {{ acceptedAtText() }}</p>
+                <ul class="accepted">
+                    <li>{{ t().legal.terms.title }} · {{ t().legal.terms.version }}</li>
+                    <li>{{ t().legal.privacy.title }} · {{ t().legal.privacy.version }}</li>
+                    <li>{{ t().legal.refund.title }} · {{ t().legal.refund.version }}</li>
+                    <li>{{ t().legal.financialData.title }} · {{ t().legal.financialData.version }}</li>
+                </ul>
+                <button type="button" class="btn" (click)="print()">{{ t().acceptance.print }}</button>
+            </section>
+        }
+        @default {
+            @if (serviceType()) {
+                <p class="service">{{ t().acceptance.service }}: <strong>{{ serviceType() }}</strong></p>
+            }
+            <p class="muted">{{ t().acceptance.intro }}</p>
+
+            <form (submit)="$event.preventDefault(); submit()">
+                <label class="field">
+                    <span>{{ t().acceptance.nameLabel }}</span>
+                    <input type="text" name="fullName" autocomplete="name" required minlength="3" maxlength="200"
+                           [value]="fullName()" (input)="fullName.set($any($event.target).value)"
+                           aria-describedby="name-hint" />
+                    <small id="name-hint">{{ t().acceptance.nameHint }}</small>
+                </label>
+
+                <fieldset>
+                    <label class="check">
+                        <input type="checkbox" required [checked]="checked().TERMS" (change)="toggle('TERMS', $any($event.target).checked)" />
+                        <span>{{ t().acceptance.terms }}
+                            <a routerLink="/terminos" target="_blank">{{ t().legal.terms.title }}<span class="sr-only"> {{ t().consentGate.opensNewTab }}</span></a></span>
+                    </label>
+                    <label class="check">
+                        <input type="checkbox" required [checked]="checked().PRIVACY" (change)="toggle('PRIVACY', $any($event.target).checked)" />
+                        <span>{{ t().acceptance.privacy }}
+                            <a routerLink="/privacidad" target="_blank">{{ t().legal.privacy.title }}<span class="sr-only"> {{ t().consentGate.opensNewTab }}</span></a></span>
+                    </label>
+                    <label class="check">
+                        <input type="checkbox" required [checked]="checked().REFUND" (change)="toggle('REFUND', $any($event.target).checked)" />
+                        <span>{{ t().acceptance.refund }}
+                            <a routerLink="/reembolsos" target="_blank">{{ t().legal.refund.title }}<span class="sr-only"> {{ t().consentGate.opensNewTab }}</span></a></span>
+                    </label>
+                    <label class="check">
+                        <input type="checkbox" required [checked]="checked().FINANCIAL_DATA" (change)="toggle('FINANCIAL_DATA', $any($event.target).checked)" />
+                        <span>{{ t().legal.financialData.intro }}</span>
+                    </label>
+                </fieldset>
+
+                @if (state() === 'error') {
+                    <p class="notice" role="alert">{{ t().acceptance.error }}</p>
+                }
+
+                <button type="submit" class="btn" [disabled]="!canSubmit()">
+                    {{ state() === 'sending' ? t().acceptance.sending : t().acceptance.submit }}
+                </button>
+            </form>
+        }
+    }
+</main>
+<app-footer></app-footer>

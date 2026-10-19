@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO(deploy): replace TU-DOMINIO.com with the real domain -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://TU-DOMINIO.com/</loc></url>
+  <url><loc>https://TU-DOMINIO.com/privacidad</loc></url>
+  <url><loc>https://TU-DOMINIO.com/terminos</loc></url>
+  <url><loc>https://TU-DOMINIO.com/reembolsos</loc></url>
+</urlset>

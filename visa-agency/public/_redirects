@@ -1,0 +1,2 @@
+# Cloudflare Pages / Netlify: private hiring links (/aceptar/<token>) are served by the Angular app with status 200.
+/aceptar/*  /index.html  200
