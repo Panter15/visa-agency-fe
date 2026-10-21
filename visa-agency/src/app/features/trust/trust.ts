@@ -4,10 +4,11 @@ import { I18n } from '../../shared/i18n/i18n';
 import { Icon } from '../../shared/icon/icon';
 import { gsap, useMotion } from '../../shared/motion/motion';
 import { Words } from '../../shared/words/words';
+import { ValuesBoard } from '../values-board/values-board';
 
 @Component({
   selector: 'app-trust',
-  imports: [Words, Icon],
+  imports: [Words, Icon, ValuesBoard],
   templateUrl: './trust.html',
   styleUrl: './trust.sass',
 })

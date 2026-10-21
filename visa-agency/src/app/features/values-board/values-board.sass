@@ -1,0 +1,95 @@
+:host
+  display: block
+
+// Values board, doodle style: a 3x3 sketch under the commitments
+.board
+  display: grid
+  grid-template-columns: repeat(3, minmax(0, 1fr))
+  grid-template-areas: "v0 v1 arrow" "v2 title v3" "stars v4 v5"
+  gap: 18px
+  align-items: center
+
+// Uneven radii look hand-drawn; the offset solid shadow reads as a second pen stroke
+.board-title, .value
+  border: 2px solid var(--ink)
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px
+  box-shadow: 4px 4px 0 var(--ink)
+
+.board-title
+  grid-area: title
+  margin: 0
+  padding: 22px 12px
+  text-align: center
+  font-family: var(--font-display)
+  font-size: clamp(1.3rem, 2vw, 1.7rem)
+  line-height: 1.15
+  background: var(--paper)
+  outline: 2px solid var(--ink)
+  outline-offset: 5px
+  transform: rotate(-2deg)
+
+.value
+  padding: 14px 16px
+  background: var(--paper)
+
+  &:nth-of-type(odd)
+    transform: rotate(-1.5deg)
+
+  &:nth-of-type(even)
+    transform: rotate(1.5deg)
+
+.value-title
+  display: flex
+  align-items: center
+  gap: 8px
+  margin: 0 0 6px
+  font-weight: 700
+  font-size: 0.85rem
+  letter-spacing: 0.08em
+  text-transform: uppercase
+
+.value-icon
+  flex: 0 0 auto
+  color: var(--accent-text)
+
+.value-text
+  margin: 0
+  color: var(--ink-soft)
+  font-size: 0.85rem
+  line-height: 1.45
+
+.doodle
+  width: 100%
+  justify-self: center
+  fill: none
+  stroke: var(--ink)
+  stroke-width: 2.5
+  stroke-linecap: round
+  stroke-linejoin: round
+
+.doodle-arrow
+  grid-area: arrow
+  max-width: 110px
+
+// The spark sits over the title's corner, like a pen flourish
+.doodle-spark
+  grid-area: title
+  align-self: start
+  justify-self: end
+  width: 34px
+  margin: -22px -18px 0 0
+  stroke: var(--accent-text)
+
+.doodle-stars
+  grid-area: stars
+  max-width: 90px
+  stroke: var(--accent-text)
+
+// Phones: one column (long names like ACOMPAÑAMIENTO don't fit two across), doodles off
+@media (max-width: 900px)
+  .board
+    grid-template-columns: minmax(0, 1fr)
+    grid-template-areas: "title" "v0" "v1" "v2" "v3" "v4" "v5"
+
+  .doodle
+    display: none

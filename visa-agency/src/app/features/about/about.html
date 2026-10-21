@@ -8,21 +8,4 @@
     </div>
     <app-passport-open class="visual" [label]="t().about.visual" [stampWord]="t().about.stamp" [date]="stampDate()" />
 
-    <!-- Values board: hand-drawn cards around a framed title, with doodles in the gaps. -->
-    <div class="board">
-        <h3 class="board-title">{{ t().about.valuesTitle }}</h3>
-        @for (value of t().about.values; track value.title; let i = $index) {
-            <div class="value" [style.grid-area]="'v' + i">
-                <app-icon class="value-icon" [name]="value.icon" />
-                <p class="value-title">{{ value.title }}</p>
-                <p class="value-text">{{ value.text }}</p>
-            </div>
-        }
-        <svg class="doodle doodle-arrow" viewBox="0 0 120 60" aria-hidden="true">
-            <path d="M6 44c22-30 58-36 98-18M104 26l-14-10M104 26l-16 6" />
-        </svg>
-        <svg class="doodle doodle-spark" viewBox="0 0 60 60" aria-hidden="true">
-            <path d="M30 6v16M30 38v16M6 30h16M38 30h16M14 14l8 8M38 38l8 8M46 14l-8 8M22 38l-8 8" />
-        </svg>
-    </div>
 </section>
