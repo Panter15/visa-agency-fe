@@ -61,14 +61,6 @@ a
   white-space: nowrap
 
 /* Shared section pieces */
-.eyebrow
-  margin: 0 0 18px
-  font-size: 0.8rem
-  font-weight: 600
-  letter-spacing: 0.16em
-  text-transform: uppercase
-  color: var(--accent-text)
-
 .section-title
   font-size: clamp(2.1rem, 6vw, 4.5rem)
 
@@ -121,3 +113,10 @@ html.lenis, html.lenis body
 
 .lenis.lenis-smooth iframe
   pointer-events: none
+
+/* Thumb-sized tap areas (44px, WCAG 2.5.5) for the small header/footer controls on touch screens */
+@media (pointer: coarse), (max-width: 900px)
+  .site-header .brand, .site-header .lang, .site-header .bar-cta, .site-footer .whatsapp, .site-footer .legal-links a
+    display: inline-flex
+    align-items: center
+    min-height: 44px

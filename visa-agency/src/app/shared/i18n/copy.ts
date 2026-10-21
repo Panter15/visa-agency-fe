@@ -18,11 +18,9 @@ const es = {
     switchTo: 'Switch to English',
   },
   hero: {
-    eyebrow: 'Asesoría de visas · Estados Unidos',
     title: 'Tu historia continúa en Estados Unidos.',
     text: 'Te acompañamos en cada paso de tu visa, para que llegues a la entrevista con calma y claridad.',
     cta: 'Agenda una cita',
-    hint: 'Desliza',
     visual: 'Ilustración de un pasaporte con una visa de Estados Unidos',
   },
   story: {
@@ -37,7 +35,6 @@ const es = {
     signed: 'Revisado contigo · Easytravel Visa',
   },
   journey: {
-    eyebrow: 'El camino',
     title: 'Cinco pasos. Una sola compañía.',
     you: 'Tú',
     us: 'Nosotros',
@@ -81,7 +78,6 @@ const es = {
     note: 'Ninguna agencia puede garantizar una visa: la decisión siempre es del consulado. Lo que sí te garantizamos es que llegarás preparado.',
   },
   about: {
-    eyebrow: 'Quiénes somos',
     title: 'Personas que conocen este camino.',
     lead: 'Una visa no es solo un trámite. Es una boda a la que llegar, un hijo al que abrazar, una oportunidad que no quieres dejar pasar.',
     body: 'Por eso trabajamos de forma cercana, honesta y sin promesas vacías: escuchamos primero, explicamos con claridad y te acompañamos hasta el final.',
@@ -90,7 +86,6 @@ const es = {
     stamp: 'ADMITIDO',
   },
   trust: {
-    eyebrow: 'Respaldo',
     title: 'Una agencia real, con personas reales.',
     // The numbers come from the API (/public/stats); here are only their labels: [singular, plural].
     statLabels: {
@@ -120,7 +115,6 @@ const es = {
     embassy: 'La Embajada de Estados Unidos no certifica ni avala a ninguna agencia, y ninguna tiene acceso preferente a citas o resultados. Desconfía de quien te lo prometa. Nosotros preferimos mostrarte quiénes somos y cómo trabajamos.',
   },
   testimonials: {
-    eyebrow: 'Historias',
     title: 'Historias que ya continuaron.',
     // Stories come from the API (/testimonials): only published ones, with the client's consent.
     rating: 'de 5',
@@ -204,11 +198,9 @@ const en: Copy = {
     switchTo: 'Cambiar a español',
   },
   hero: {
-    eyebrow: 'Visa guidance · United States',
     title: 'Your story continues in the United States.',
     text: 'We walk with you through every step of your visa, so you arrive at your interview calm and clear.',
     cta: 'Book a consultation',
-    hint: 'Scroll',
     visual: 'Illustration of a passport with a United States visa',
   },
   story: {
@@ -223,7 +215,6 @@ const en: Copy = {
     signed: 'Reviewed with you · Easytravel Visa',
   },
   journey: {
-    eyebrow: 'The path',
     title: 'Five steps. One companion.',
     you: 'You',
     us: 'Us',
@@ -267,7 +258,6 @@ const en: Copy = {
     note: 'No agency can guarantee a visa: the decision always belongs to the consulate. What we do guarantee is that you will arrive prepared.',
   },
   about: {
-    eyebrow: 'Who we are',
     title: 'People who know this path.',
     lead: 'A visa is not just paperwork. It is a wedding to attend, a child to hug, an opportunity you don’t want to miss.',
     body: 'That is why we work closely, honestly and without empty promises: we listen first, explain clearly and stay with you until the end.',
@@ -276,7 +266,6 @@ const en: Copy = {
     stamp: 'ADMITTED',
   },
   trust: {
-    eyebrow: 'Our backing',
     title: 'A real agency, with real people.',
     statLabels: {
       peopleHelped: ['person advised', 'people advised'],
@@ -304,7 +293,6 @@ const en: Copy = {
     embassy: 'The U.S. Embassy does not certify or endorse any agency, and none has preferential access to appointments or outcomes. Be wary of anyone who promises that. We would rather show you who we are and how we work.',
   },
   testimonials: {
-    eyebrow: 'Stories',
     title: 'Stories that already moved forward.',
     rating: 'out of 5',
   },
