@@ -5,7 +5,7 @@
 .about-section
   display: grid
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr)
-  grid-template-areas: "head body" "visual body"
+  grid-template-areas: "head body" "visual body" "board board"
   align-items: start
   gap: 48px clamp(32px, 8vw, 140px)
   padding: clamp(96px, 16vh, 180px) var(--gutter)
@@ -37,24 +37,86 @@
   color: var(--ink-soft)
   font-size: 1.1rem
 
-.values
-  display: flex
-  flex-wrap: wrap
-  gap: 12px
-  margin: 0
-  padding: 0
-  list-style: none
+// Values board: a 3x3 grid, title in the middle, six values and two doodles around it
+.board
+  grid-area: board
+  display: grid
+  grid-template-columns: repeat(3, minmax(0, 1fr))
+  grid-template-areas: "v0 v1 arrow" "v2 title v3" "spark v4 v5"
+  gap: clamp(20px, 3vw, 40px)
+  align-items: center
+  margin-top: clamp(48px, 8vh, 96px)
 
-  li
-    padding: 10px 20px
-    border: 1px solid var(--line)
-    border-radius: 999px
-    font-size: 0.95rem
+// Uneven radii make a box look hand-drawn
+.board-title, .value
+  border: 2px solid var(--ink)
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px
+
+.board-title
+  grid-area: title
+  margin: 0
+  padding: 28px 20px
+  text-align: center
+  font-family: var(--font-display)
+  font-size: clamp(1.6rem, 3vw, 2.4rem)
+  background: var(--ink)
+  color: var(--paper)
+  transform: rotate(-2deg)
+
+.value
+  padding: 22px 24px
+  background: var(--paper)
+
+  &:nth-of-type(odd)
+    transform: rotate(-1.2deg)
+
+  &:nth-of-type(even)
+    transform: rotate(1.4deg)
+
+.value-icon
+  font-size: 1.4rem
+  color: var(--accent-text)
+
+.value-title
+  margin: 10px 0 6px
+  font-family: var(--font-display)
+  font-size: 1.35rem
+
+.value-text
+  margin: 0
+  color: var(--ink-soft)
+  font-size: 0.98rem
+  line-height: 1.5
+
+.doodle
+  width: 100%
+  max-width: 120px
+  justify-self: center
+  fill: none
+  stroke: var(--accent-text)
+  stroke-width: 2.5
+  stroke-linecap: round
+  stroke-linejoin: round
+
+.doodle-arrow
+  grid-area: arrow
+
+.doodle-spark
+  grid-area: spark
+  max-width: 64px
 
 @media (max-width: 900px)
   .about-section
     grid-template-columns: minmax(0, 1fr)
-    grid-template-areas: "head" "body" "visual"
+    grid-template-areas: "head" "body" "visual" "board"
+
+  // Phones: one column, title first, no doodles
+  .board
+    grid-template-columns: minmax(0, 1fr)
+    grid-template-areas: "title" "v0" "v1" "v2" "v3" "v4" "v5"
+
+  .doodle
+    display: none
 
   .visual
     justify-self: center

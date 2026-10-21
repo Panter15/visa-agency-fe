@@ -1,12 +1,13 @@
 import { Component, computed, inject } from '@angular/core';
 import { I18n } from '../../shared/i18n/i18n';
 import { gsap, useMotion } from '../../shared/motion/motion';
+import { Icon } from '../../shared/icon/icon';
 import { PassportOpen } from '../../shared/passport-open/passport-open';
 import { Words } from '../../shared/words/words';
 
 @Component({
   selector: 'app-about',
-  imports: [Words, PassportOpen],
+  imports: [Words, PassportOpen, Icon],
   templateUrl: './about.html',
   styleUrl: './about.sass',
 })
@@ -31,13 +32,24 @@ export class About {
         scrollTrigger: { trigger: root.querySelector('.head'), start: 'top 80%' },
       });
 
-      gsap.from(['.lead', '.text', '.values li'], {
+      gsap.from(['.lead', '.text'], {
         y: 40,
         autoAlpha: 0,
         duration: 1,
         stagger: 0.15,
         ease: 'power3.out',
         scrollTrigger: { trigger: root.querySelector('.body'), start: 'top 80%' },
+      });
+
+      // Values land one by one on the board, each with its own small tilt.
+      gsap.from(['.board-title', '.value', '.doodle'], {
+        y: 40,
+        autoAlpha: 0,
+        rotation: () => gsap.utils.random(-8, 8),
+        duration: 0.8,
+        stagger: 0.08,
+        ease: 'back.out(1.6)',
+        scrollTrigger: { trigger: root.querySelector('.board'), start: 'top 75%' },
       });
 
       // Passport slides in open, then an officer-style rubber stamp comes down: ADMITTED.

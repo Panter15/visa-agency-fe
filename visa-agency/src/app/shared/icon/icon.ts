@@ -34,6 +34,37 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
           <path d="M19.5 10.5A8 8 0 0 0 5.2 7.2L4 8.5M4 3.5v5h5" />
           <path d="M4.5 13.5a8 8 0 0 0 14.3 3.3l1.2-1.3M20 20.5v-5h-5" />
         }
+        @case ('heart') {
+          <path d="M12 20.5s-8.5-5-8.5-11A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8.5 2.5c0 6-8.5 11-8.5 11z" />
+        }
+        @case ('shield') {
+          <path d="M12 2.5 4.5 5.5v6c0 4.8 3.2 8.4 7.5 10 4.3-1.6 7.5-5.2 7.5-10v-6z" />
+          <path d="m8.5 12 2.5 2.5 4.5-5" />
+        }
+        @case ('bulb') {
+          <path d="M9 17.5h6M10 21h4M12 2.5a6.5 6.5 0 0 0-3.8 11.8c.5.4.8 1 .8 1.7v1.5h6V16c0-.7.3-1.3.8-1.7A6.5 6.5 0 0 0 12 2.5z" />
+        }
+        @case ('target') {
+          <circle cx="12" cy="12" r="9.5" />
+          <circle cx="12" cy="12" r="5.5" />
+          <circle cx="12" cy="12" r="1.5" />
+        }
+        @case ('briefcase') {
+          <rect x="2.5" y="7" width="19" height="13" rx="2" />
+          <path d="M8.5 7V5a1.5 1.5 0 0 1 1.5-1.5h4A1.5 1.5 0 0 1 15.5 5v2M2.5 12.5h19" />
+        }
+        @case ('compass') {
+          <circle cx="12" cy="12" r="9.5" />
+          <path d="m15.5 8.5-2 5-5 2 2-5z" />
+        }
+        @case ('family') {
+          <circle cx="8" cy="6.5" r="2.5" />
+          <circle cx="16.5" cy="9" r="2" />
+          <path d="M3.5 20.5v-3.5a4.5 4.5 0 0 1 9 0v3.5M13 20.5v-2.5a3.5 3.5 0 0 1 7 0v2.5" />
+        }
+        @case ('leaf') {
+          <path d="M12 21.5v-5M12 16.5 6 18l1-3-4-3.5 2-.5-1-4 3.5 1.5L8 6l2 1.5L12 2.5l2 5 2-1.5.5 2.5 3.5-1.5-1 4 2 .5-4 3.5 1 3z" />
+        }
       }
     </svg>
   `,
