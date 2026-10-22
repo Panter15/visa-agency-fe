@@ -1,13 +1,28 @@
+// The board picks its layout from its own width (container queries), not the window's,
+// because it lives in a column whose width varies a lot between screens.
 :host
   display: block
+  container-type: inline-size
 
-// Values board, doodle style: a 3x3 sketch under the commitments
+// Narrow: one column, title first
 .board
   display: grid
-  grid-template-columns: repeat(3, minmax(0, 1fr))
-  grid-template-areas: "v0 v1 arrow" "v2 title v3" "stars v4 v5"
+  grid-template-columns: minmax(0, 1fr)
+  grid-template-areas: "title" "v0" "v1" "v2" "v3" "v4" "v5"
   gap: 18px
   align-items: center
+
+// Medium: two columns under the title
+@container (min-width: 480px)
+  .board
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+    grid-template-areas: "title title" "v0 v1" "v2 v3" "v4 v5"
+
+// Wide: the full 3x3 doodle sketch, title in the middle
+@container (min-width: 780px)
+  .board
+    grid-template-columns: repeat(3, minmax(0, 1fr))
+    grid-template-areas: "v0 v1 arrow" "v2 title v3" "stars v4 v5"
 
 // Uneven radii look hand-drawn; the offset solid shadow reads as a second pen stroke
 .board-title, .value
@@ -58,7 +73,9 @@
   font-size: 0.85rem
   line-height: 1.45
 
+// Doodles only make sense in the 3x3 sketch
 .doodle
+  display: none
   width: 100%
   justify-self: center
   fill: none
@@ -85,11 +102,7 @@
   max-width: 90px
   stroke: var(--accent-text)
 
-// Phones: one column (long names like ACOMPAÑAMIENTO don't fit two across), doodles off
-@media (max-width: 900px)
-  .board
-    grid-template-columns: minmax(0, 1fr)
-    grid-template-areas: "title" "v0" "v1" "v2" "v3" "v4" "v5"
-
+// After the base .doodle rule, so it wins
+@container (min-width: 780px)
   .doodle
-    display: none
+    display: block
