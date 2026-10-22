@@ -71,7 +71,8 @@ export class Trust {
         });
       }
 
-      gsap.from(['.col-title', '.visas li', '.commitments li'], {
+      // `> ul > li`: only this section's own lists, not the values board's cards nested inside .commitments
+      gsap.from(['.col-title', '.visas > ul > li', '.commitments > ul > li'], {
         y: 30,
         autoAlpha: 0,
         duration: 0.8,

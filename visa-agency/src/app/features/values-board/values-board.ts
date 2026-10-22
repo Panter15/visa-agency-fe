@@ -3,7 +3,7 @@ import { I18n } from '../../shared/i18n/i18n';
 import { Icon } from '../../shared/icon/icon';
 import { gsap, useMotion } from '../../shared/motion/motion';
 
-// "Nuestros valores" as a doodle board: value labels around a framed title, sketches in the gaps.
+// "Nuestros valores": six value cards (icon, name, one line) under the commitments.
 @Component({
   selector: 'app-values-board',
   imports: [Icon],
@@ -15,14 +15,13 @@ export class ValuesBoard {
 
   constructor() {
     useMotion(root => {
-      // Values land on the board one by one, each with its own small tilt
-      gsap.from(['.board-title', '.value', '.doodle'], {
+      // Cards rise in one after another, like the rest of the section
+      gsap.from(['.board-title', '.value'], {
         y: 30,
         autoAlpha: 0,
-        rotation: () => gsap.utils.random(-10, 10),
-        duration: 0.7,
-        stagger: 0.07,
-        ease: 'back.out(1.7)',
+        duration: 0.8,
+        stagger: 0.08,
+        ease: 'power3.out',
         scrollTrigger: { trigger: root, start: 'top 80%' },
       });
     });
