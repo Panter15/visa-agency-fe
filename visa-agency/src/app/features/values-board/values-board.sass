@@ -3,6 +3,8 @@
 :host
   display: block
   container-type: inline-size
+  // Stamp ink: same blue as the passport's entry stamp (passport-open.sass)
+  --stamp-ink: #2f4f8f
 
 // Same heading size as the other column titles in this section
 .board-title
@@ -13,7 +15,7 @@
 .board
   display: grid
   grid-template-columns: minmax(0, 1fr)
-  gap: 16px
+  gap: 18px
   margin: 0
   padding: 0
   list-style: none
@@ -26,30 +28,40 @@
   .board
     grid-template-columns: repeat(3, minmax(0, 1fr))
 
-.value
-  display: flex
-  gap: 14px
-  padding: 20px
-  border: 1px solid var(--line)
-  border-radius: 14px
-  background: rgba(255, 255, 255, 0.45)
+// Double-line frame + a thin inner rule, like a consular entry stamp
+.stamp
+  position: relative
+  padding: 18px 20px 20px
+  border: 4px double var(--stamp-ink)
+  border-radius: 8px
+  color: var(--stamp-ink)
+  text-align: center
 
-.value-icon
-  display: grid
-  place-items: center
-  flex: 0 0 40px
-  height: 40px
-  border-radius: 50%
-  background: var(--ink)
-  color: var(--paper)
-  font-size: 0.9rem
+  &::after
+    content: ''
+    position: absolute
+    inset: 5px
+    border: 1px solid var(--stamp-ink)
+    border-radius: 4px
+    opacity: 0.35
+    pointer-events: none
 
-.value-title
-  margin: 2px 0 6px
-  font-weight: 600
+.stamp-no
+  display: block
+  font-size: 0.72rem
+  font-weight: 700
+  letter-spacing: 0.3em
+
+.stamp-title
+  margin: 8px 0 12px
+  padding-bottom: 12px
+  border-bottom: 1px solid currentColor
+  font-weight: 700
   font-size: 1rem
+  letter-spacing: 0.16em
+  text-transform: uppercase
 
-.value-text
+.stamp-text
   margin: 0
   color: var(--ink-soft)
   font-size: 0.92rem
