@@ -21,7 +21,7 @@ const es = {
     title: 'Tu historia continúa en Estados Unidos.',
     text: 'Te acompañamos en cada paso de tu visa, para que llegues a la entrevista con calma y claridad.',
     cta: 'Agenda una cita',
-    visual: 'Ilustración de un pasaporte con una visa de Estados Unidos',
+    visual: 'Ilustración de un pasaporte azul marino con detalles dorados y el emblema de Easytravel Visa',
   },
   story: {
     lines: [
@@ -213,7 +213,7 @@ const en: Copy = {
     title: 'Your story continues in the United States.',
     text: 'We walk with you through every step of your visa, so you arrive at your interview calm and clear.',
     cta: 'Book a consultation',
-    visual: 'Illustration of a passport with a United States visa',
+    visual: 'Illustration of a navy passport with gold details and the Easytravel Visa emblem',
   },
   story: {
     lines: [

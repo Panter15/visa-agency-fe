@@ -1,120 +1,89 @@
 :host
   display: block
 
+// hidden: the sheen ends parked outside the drawing; it must not widen the page on phones
 .scene
   display: block
   width: 100%
   height: auto
-  overflow: visible
+  overflow: hidden
 
-.route
-  fill: none
-  stroke: var(--accent)
-  stroke-width: 1.5
-  stroke-dasharray: 2 8
-  stroke-linecap: round
-  opacity: 0.6
+.ground
+  fill: rgba(20, 40, 74, 0.28)
 
-// Passport
+.ribbon
+  fill: #7a1f2b
+
+.pages
+  fill: #f3ede1
+  stroke: #d9cfbd
+  stroke-width: 1
+
+.page-lines
+  stroke: #d9cfbd
+  stroke-width: 1
+
 .cover
   fill: var(--ink)
 
-.cover-line
-  fill: none
-  stroke: var(--accent-light)
-  stroke-width: 1
-  opacity: 0.5
+// Darker band where the cover folds, with a light crease next to it
+.spine
+  fill: rgba(0, 0, 0, 0.28)
 
-.emblem
-  fill: none
-  stroke: var(--accent-light)
+.spine-edge
+  stroke: rgba(255, 255, 255, 0.12)
   stroke-width: 1.5
 
-  .needle
-    fill: var(--accent-light)
-
-.cover-title,
-.cover-sub
-  fill: var(--accent-light)
-  font-family: var(--font-body)
-  font-weight: 600
-  letter-spacing: 0.3em
-
-.cover-title
-  font-size: 15px
-
-.cover-sub
-  font-size: 10px
-  opacity: 0.75
-
-.chip
+// Everything in gold foil uses the same gradient
+.foil
   fill: none
-  stroke: var(--accent-light)
+  stroke: url(#ps-gold)
+
+.frame
   stroke-width: 1.4
 
-// Visa
-.visa-card
-  fill: #fdfaf4
-  stroke: var(--line)
-  filter: drop-shadow(0 18px 30px rgba(15, 27, 45, 0.18))
+  &.thin
+    stroke-width: 0.6
 
-.guilloche
-  fill: none
-  stroke: var(--accent)
-  stroke-width: 1
-  opacity: 0.25
+.ring
+  stroke-width: 2
 
-.visa-band
-  fill: var(--accent)
+  &.thin
+    stroke-width: 0.8
 
-.visa-word
-  fill: var(--paper)
-  font-family: var(--font-display)
-  font-size: 17px
-  font-weight: 600
-  letter-spacing: 0.12em
+.leaf
+  fill: url(#ps-gold)
+  stroke: none
 
-.visa-country
-  fill: var(--paper)
-  font-family: var(--font-body)
-  font-size: 8.5px
-  font-weight: 600
-  letter-spacing: 0.14em
+.mark
+  stroke-width: 3.4
+  stroke-linecap: round
+  stroke-linejoin: round
 
-.photo
-  fill: #e9e2d4
-
-.person
-  fill: #b9ae99
-
-.field
-  fill: #e4dccd
-
-.mrz
-  fill: var(--ink-soft)
-  font-family: ui-monospace, Consolas, monospace
-  font-size: 10px
-  letter-spacing: 0.08em
-
-// Entry stamp
-.stamp
-  fill: none
-  stroke: #9b3b2f
-  stroke-width: 3
-  opacity: 0.85
-
-  .thin
-    stroke-width: 1.2
-
-  .star
-    fill: #9b3b2f
+  .fill
+    fill: url(#ps-gold)
     stroke: none
 
-.stamp-text,
-.stamp-date
-  fill: #9b3b2f
+  .check
+    stroke-width: 5
+
+.title, .sub, .name
+  fill: url(#ps-gold)
   stroke: none
-  font-family: var(--font-body)
+  font-family: var(--font-display)
+  font-weight: 600
+
+.title
+  font-size: 24px
+  letter-spacing: 0.3em
+
+.sub
   font-size: 11px
-  font-weight: 700
-  letter-spacing: 0.2em
+  letter-spacing: 0.45em
+
+.name
+  font-size: 12px
+  letter-spacing: 0.32em
+
+.chip
+  stroke-width: 1.4

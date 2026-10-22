@@ -22,7 +22,8 @@ export class ValuesBoard {
       });
       // Each stamp lands like a rubber stamp: slightly larger, then pressed flat onto the page
       gsap.from('.stamp', {
-        scale: 1.12,
+        // 1.06, not more: a bigger start size sticks out past a phone's edge until the stamp lands
+        scale: 1.06,
         autoAlpha: 0,
         duration: 0.35,
         stagger: 0.12,
