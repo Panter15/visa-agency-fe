@@ -5,7 +5,7 @@
 import { copyFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 
-const ROUTES = ['login', 'admin-perspective', 'privacidad', 'terminos', 'reembolsos'];
+const ROUTES = ['privacidad', 'terminos', 'reembolsos'];
 const dist = 'dist/visa-agency/browser';
 const index = join(dist, 'index.html');
 
