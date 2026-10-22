@@ -1,16 +1,11 @@
 <section id="about" class="about-section">
     <div class="head">
-        <p class="eyebrow">{{ t().about.eyebrow }}</p>
         <h2 class="section-title title" [appWords]="t().about.title"></h2>
     </div>
     <div class="body">
         <p class="lead">{{ t().about.lead }}</p>
         <p class="text">{{ t().about.body }}</p>
-        <ul class="values">
-            @for (value of t().about.values; track $index) {
-                <li>{{ value }}</li>
-            }
-        </ul>
     </div>
     <app-passport-open class="visual" [label]="t().about.visual" [stampWord]="t().about.stamp" [date]="stampDate()" />
+
 </section>

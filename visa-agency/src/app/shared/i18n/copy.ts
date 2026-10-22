@@ -18,11 +18,9 @@ const es = {
     switchTo: 'Switch to English',
   },
   hero: {
-    eyebrow: 'Asesoría de visas · Estados Unidos',
     title: 'Tu historia continúa en Estados Unidos.',
     text: 'Te acompañamos en cada paso de tu visa, para que llegues a la entrevista con calma y claridad.',
     cta: 'Agenda una cita',
-    hint: 'Desliza',
     visual: 'Ilustración de un pasaporte con una visa de Estados Unidos',
   },
   story: {
@@ -37,7 +35,6 @@ const es = {
     signed: 'Revisado contigo · Easytravel Visa',
   },
   journey: {
-    eyebrow: 'El camino',
     title: 'Cinco pasos. Una sola compañía.',
     you: 'Tú',
     us: 'Nosotros',
@@ -81,16 +78,22 @@ const es = {
     note: 'Ninguna agencia puede garantizar una visa: la decisión siempre es del consulado. Lo que sí te garantizamos es que llegarás preparado.',
   },
   about: {
-    eyebrow: 'Quiénes somos',
     title: 'Personas que conocen este camino.',
     lead: 'Una visa no es solo un trámite. Es una boda a la que llegar, un hijo al que abrazar, una oportunidad que no quieres dejar pasar.',
     body: 'Por eso trabajamos de forma cercana, honesta y sin promesas vacías: escuchamos primero, explicamos con claridad y te acompañamos hasta el final.',
-    values: ['Cercanía', 'Honestidad', 'Claridad'],
+    valuesTitle: 'Nuestros valores',
+    values: [
+      { icon: 'heart', title: 'Cercanía', text: 'Te escuchamos primero. Eres una persona, no un expediente.' },
+      { icon: 'shield', title: 'Honestidad', text: 'Nunca prometemos una visa aprobada: nadie puede hacerlo.' },
+      { icon: 'bulb', title: 'Claridad', text: 'Desde el inicio sabes cuánto cuesta y qué incluye.' },
+      { icon: 'target', title: 'Estrategia', text: 'Una estrategia seria, enfocada en tu perfil.' },
+      { icon: 'briefcase', title: 'Profesionalismo', text: 'Llenado profesional del DS-160 y revisión de cada documento.' },
+      { icon: 'compass', title: 'Acompañamiento', text: 'Contigo hasta que acudes a tu cita y recibes tu visa.' },
+    ],
     visual: 'Pasaporte abierto con una visa de Estados Unidos y un sello de entrada',
     stamp: 'ADMITIDO',
   },
   trust: {
-    eyebrow: 'Respaldo',
     title: 'Una agencia real, con personas reales.',
     // The numbers come from the API (/public/stats); here are only their labels: [singular, plural].
     statLabels: {
@@ -101,17 +104,21 @@ const es = {
     },
     statsNote: 'Cifras actualizadas en vivo desde nuestros registros.',
     visasTitle: 'Te asesoramos en',
+    // Services from the owner (2026-10-21). Fees are given on request (WhatsApp), not shown here.
     visas: [
-      { icon: 'passport', code: 'PAS.', label: 'Pasaporte: cita, requisitos y trámite' },
-      { icon: 'plane', code: 'B1/B2', label: 'Turismo y negocios' },
-      { icon: 'cap', code: 'F-1', label: 'Estudiantes' },
-      { icon: 'globe', code: 'J-1', label: 'Intercambio y prácticas' },
-      { icon: 'renew', code: 'RENOV.', label: 'Renovación de visa' },
+      { icon: 'plane', code: 'B1/B2', label: 'Visa de turismo y negocios, primera vez' },
+      { icon: 'renew', code: 'RENOV.', label: 'Renovación de visa de turismo y negocios' },
+      { icon: 'alert', code: 'CANC.', label: 'Visa cancelada o deportación' },
+      { icon: 'family', code: 'TD', label: 'Visa TD' },
+      { icon: 'leaf', code: 'CAN', label: 'Visa canadiense' },
+      { icon: 'passport', code: 'MX', label: 'Pasaporte mexicano, primera vez o renovación' },
+      { icon: 'passport', code: 'US', label: 'Pasaporte americano, primera vez o renovación' },
     ],
+    visasNote: 'El derecho de visa del gobierno de EE. UU. (alrededor de US$185) lo pagas directamente tú. Plan de pagos: 50 % al iniciar y 50 % cuando te compartimos tu primera cita.',
     // ⚠️ PLACEHOLDER commitments — confirm each one with the agency before going live.
     commitmentsTitle: 'Nuestro compromiso contigo',
     commitments: [
-      { title: 'Empresa registrada', text: 'Operamos legalmente y emitimos factura por cada servicio.' },
+      { title: 'Pagos a tu medida', text: 'Transferencia, depósito o efectivo, y plan de pagos 50/50.' },
       { title: 'Contrato por escrito', text: 'Sabes desde el inicio qué incluye el servicio y cuánto cuesta.' },
       { title: 'Tus datos, protegidos', text: 'Tu información solo se usa para tu trámite. Nunca la compartimos.' },
       { title: 'Atención bilingüe', text: 'Te acompañamos en español e inglés, a tu ritmo.' },
@@ -120,7 +127,6 @@ const es = {
     embassy: 'La Embajada de Estados Unidos no certifica ni avala a ninguna agencia, y ninguna tiene acceso preferente a citas o resultados. Desconfía de quien te lo prometa. Nosotros preferimos mostrarte quiénes somos y cómo trabajamos.',
   },
   testimonials: {
-    eyebrow: 'Historias',
     title: 'Historias que ya continuaron.',
     // Stories come from the API (/testimonials): only published ones, with the client's consent.
     rating: 'de 5',
@@ -204,11 +210,9 @@ const en: Copy = {
     switchTo: 'Cambiar a español',
   },
   hero: {
-    eyebrow: 'Visa guidance · United States',
     title: 'Your story continues in the United States.',
     text: 'We walk with you through every step of your visa, so you arrive at your interview calm and clear.',
     cta: 'Book a consultation',
-    hint: 'Scroll',
     visual: 'Illustration of a passport with a United States visa',
   },
   story: {
@@ -223,7 +227,6 @@ const en: Copy = {
     signed: 'Reviewed with you · Easytravel Visa',
   },
   journey: {
-    eyebrow: 'The path',
     title: 'Five steps. One companion.',
     you: 'You',
     us: 'Us',
@@ -267,16 +270,22 @@ const en: Copy = {
     note: 'No agency can guarantee a visa: the decision always belongs to the consulate. What we do guarantee is that you will arrive prepared.',
   },
   about: {
-    eyebrow: 'Who we are',
     title: 'People who know this path.',
     lead: 'A visa is not just paperwork. It is a wedding to attend, a child to hug, an opportunity you don’t want to miss.',
     body: 'That is why we work closely, honestly and without empty promises: we listen first, explain clearly and stay with you until the end.',
-    values: ['Closeness', 'Honesty', 'Clarity'],
+    valuesTitle: 'Our values',
+    values: [
+      { icon: 'heart', title: 'Closeness', text: 'We listen first. You are a person, not a file.' },
+      { icon: 'shield', title: 'Honesty', text: 'We never promise an approved visa: nobody can.' },
+      { icon: 'bulb', title: 'Clarity', text: 'From day one you know what it costs and what it includes.' },
+      { icon: 'target', title: 'Strategy', text: 'A serious strategy, focused on your profile.' },
+      { icon: 'briefcase', title: 'Professionalism', text: 'Professional DS-160 filing and a review of every document.' },
+      { icon: 'compass', title: 'Guidance', text: 'With you until you attend your appointment and get your visa.' },
+    ],
     visual: 'Open passport with a United States visa and an entry stamp',
     stamp: 'ADMITTED',
   },
   trust: {
-    eyebrow: 'Our backing',
     title: 'A real agency, with real people.',
     statLabels: {
       peopleHelped: ['person advised', 'people advised'],
@@ -287,15 +296,18 @@ const en: Copy = {
     statsNote: 'Figures updated live from our records.',
     visasTitle: 'We guide you through',
     visas: [
-      { icon: 'passport', code: 'PASS', label: 'Passport: appointment, requirements and filing' },
-      { icon: 'plane', code: 'B1/B2', label: 'Tourism and business' },
-      { icon: 'cap', code: 'F-1', label: 'Students' },
-      { icon: 'globe', code: 'J-1', label: 'Exchange and internships' },
-      { icon: 'renew', code: 'RENEW', label: 'Visa renewal' },
+      { icon: 'plane', code: 'B1/B2', label: 'Tourism and business visa, first time' },
+      { icon: 'renew', code: 'RENEW', label: 'Tourism and business visa renewal' },
+      { icon: 'alert', code: 'CANC.', label: 'Cancelled visa or deportation' },
+      { icon: 'family', code: 'TD', label: 'TD visa' },
+      { icon: 'leaf', code: 'CAN', label: 'Canadian visa' },
+      { icon: 'passport', code: 'MX', label: 'Mexican passport, first time or renewal' },
+      { icon: 'passport', code: 'US', label: 'US passport, first time or renewal' },
     ],
+    visasNote: 'The US government visa fee (about US$185) is paid directly by you. Payment plan: 50% to start and 50% when we share your first appointment.',
     commitmentsTitle: 'Our commitment to you',
     commitments: [
-      { title: 'Registered company', text: 'We operate legally and issue an invoice for every service.' },
+      { title: 'Payments that fit you', text: 'Bank transfer, deposit or cash, and a 50/50 payment plan.' },
       { title: 'Written contract', text: 'From day one you know what the service includes and what it costs.' },
       { title: 'Your data, protected', text: 'Your information is only used for your application. We never share it.' },
       { title: 'Bilingual support', text: 'We guide you in Spanish and English, at your pace.' },
@@ -304,7 +316,6 @@ const en: Copy = {
     embassy: 'The U.S. Embassy does not certify or endorse any agency, and none has preferential access to appointments or outcomes. Be wary of anyone who promises that. We would rather show you who we are and how we work.',
   },
   testimonials: {
-    eyebrow: 'Stories',
     title: 'Stories that already moved forward.',
     rating: 'out of 5',
   },

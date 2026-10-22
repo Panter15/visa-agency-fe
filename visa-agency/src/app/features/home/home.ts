@@ -18,10 +18,9 @@ export class Home {
 
   constructor() {
     useMotion(() => {
-      // Entrance: eyebrow → headline word by word → subtext + CTA → scroll hint
+      // Entrance: headline word by word → subtext + CTA → scroll cue
       gsap.timeline({ defaults: { ease: 'power4.out' }, delay: 0.2 })
-        .from('.eyebrow', { y: 20, autoAlpha: 0, duration: 0.8 })
-        .from('.headline .word', { yPercent: 110, duration: 1.1, stagger: 0.06 }, '-=0.5')
+        .from('.headline .word', { yPercent: 110, duration: 1.1, stagger: 0.06 })
         .from('.intro > *', { y: 30, autoAlpha: 0, duration: 0.9, stagger: 0.2 }, '-=0.7')
         .from('.scroll-hint', { autoAlpha: 0, duration: 0.6 }, '-=0.4');
 

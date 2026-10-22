@@ -1,6 +1,5 @@
 <section class="trust-section">
     <div class="head">
-        <p class="eyebrow">{{ t().trust.eyebrow }}</p>
         <h2 class="section-title title" [appWords]="t().trust.title"></h2>
     </div>
 
@@ -24,10 +23,11 @@
                     <li>
                         <app-icon class="visa-icon" [name]="visa.icon" />
                         <span class="visa-code">{{ visa.code }}</span>
-                        <span>{{ visa.label }}</span>
+                        <span class="visa-label">{{ visa.label }}</span>
                     </li>
                 }
             </ul>
+            <p class="visas-note">{{ t().trust.visasNote }}</p>
         </div>
 
         <div class="commitments">
@@ -43,6 +43,8 @@
                     </li>
                 }
             </ul>
+
+            <app-values-board class="values-board" />
         </div>
     </div>
 

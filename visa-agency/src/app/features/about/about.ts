@@ -31,7 +31,7 @@ export class About {
         scrollTrigger: { trigger: root.querySelector('.head'), start: 'top 80%' },
       });
 
-      gsap.from(['.lead', '.text', '.values li'], {
+      gsap.from(['.lead', '.text'], {
         y: 40,
         autoAlpha: 0,
         duration: 1,
