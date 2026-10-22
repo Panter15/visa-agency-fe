@@ -57,6 +57,7 @@ export class Consent {
 
   // Called from the dialog's "Continue" click. Opens WhatsApp first (browsers only allow pop-ups straight from a click),
   // then records the consent in the background; keepalive lets the request finish even if the tab changes.
+  // The browser only remembers "accepted" once the server has stored it, so a failed save asks again next time.
   confirmWhatsapp(documents: DocumentAcceptance[]) {
     const url = this.pendingWhatsappUrl();
     if (!url) return;
@@ -65,15 +66,19 @@ export class Consent {
 
     const anonymousId = this.read()?.anonymousId ?? crypto.randomUUID();
     const legal = this.i18n.t().legal;
-    this.write({ anonymousId, terms: legal.terms.version, privacy: legal.privacy.version });
+    const accepted: StoredConsent = { anonymousId, terms: legal.terms.version, privacy: legal.privacy.version };
     fetch(`${environment.apiUrl}/public/consents`, {
       method: 'POST',
       keepalive: true,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ anonymousId, language: this.i18n.lang(), documents }),
-    }).catch(() => {
-      // Not blocking the visitor: they still reach WhatsApp. The agency confirms acceptance again when hiring.
-    });
+    })
+      .then(res => {
+        if (res.ok) this.write(accepted);
+      })
+      .catch(() => {
+        // Not blocking the visitor: they still reach WhatsApp. The agency confirms acceptance again when hiring.
+      });
   }
 
   getAcceptance(token: string) {
