@@ -17,7 +17,7 @@ export class Home {
   protected readonly t = this.i18n.t;
 
   constructor() {
-    useMotion((root, { desktop }) => {
+    useMotion((_root, { desktop }) => {
       // Entrance: headline word by word → subtext + CTA → scroll cue
       gsap.timeline({ defaults: { ease: 'power4.out' }, delay: 0.2 })
         .from('.headline .word', { yPercent: 110, duration: 1.1, stagger: 0.06 })
@@ -45,36 +45,9 @@ export class Home {
         scrollTrigger: { trigger: '.home-section', start: 'top top', end: 'bottom top', scrub: true },
       });
 
-      // Moves the whole <svg> (.scene), so it never fights the drift above, which moves .passport inside it
-      const scene = root.querySelector<SVGElement>('.scene');
-      const section = root.querySelector<HTMLElement>('.home-section');
-      if (!scene || !section) return;
-
-      if (!desktop) {
-        // Touch screens have no pointer to follow: a slow float instead
-        gsap.to(scene, { y: -8, duration: 3, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.6 });
-        return;
-      }
-
-      // Desktop: the passport tilts in 3D toward the pointer, like a real object in the hand
-      gsap.set(scene, { transformPerspective: 900 });
-      const tiltX = gsap.quickTo(scene, 'rotationX', { duration: 0.8, ease: 'power3.out' });
-      const tiltY = gsap.quickTo(scene, 'rotationY', { duration: 0.8, ease: 'power3.out' });
-      const onMove = (e: PointerEvent) => {
-        const r = scene.getBoundingClientRect();
-        tiltY(((e.clientX - (r.left + r.width / 2)) / r.width) * 16);
-        tiltX(((r.top + r.height / 2 - e.clientY) / r.height) * 12);
-      };
-      const onLeave = () => {
-        tiltX(0);
-        tiltY(0);
-      };
-      section.addEventListener('pointermove', onMove);
-      section.addEventListener('pointerleave', onLeave);
-      return () => {
-        section.removeEventListener('pointermove', onMove);
-        section.removeEventListener('pointerleave', onLeave);
-      };
+      // Touch screens have no pointer to tilt toward (desktop tilt: appTilt on the scene): a slow float instead.
+      // Moves the whole <svg>, so it never fights the drift above, which moves .passport inside it.
+      if (!desktop) gsap.to('.scene', { y: -8, duration: 3, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.6 });
     });
   }
 }

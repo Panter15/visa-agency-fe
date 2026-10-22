@@ -2,9 +2,19 @@
     <h2 class="closing-title" [appWords]="t().closing.title"></h2>
 
     <!-- Decorative boarding pass: the visitor is the passenger, the US is the destination -->
-    <div class="pass" aria-hidden="true">
+    <div class="pass" appTilt="8" aria-hidden="true">
         <div class="pass-main">
-            <p class="pass-label"><app-icon name="plane" />{{ t().closing.pass.label }}</p>
+            <div class="pass-head">
+                <p class="pass-label"><app-icon name="plane" />{{ t().closing.pass.label }}</p>
+                <!-- The agency's mark in a gold ring, like the passport crest -->
+                <svg class="pass-crest" viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="32" cy="32" r="29" />
+                    <g transform="translate(5 5) scale(0.84)">
+                        <path d="M15 27 A21 21 0 1 0 52 45" />
+                        <path class="check" d="M22 35 L31 46 L57 15" />
+                    </g>
+                </svg>
+            </div>
             <div class="route">
                 <div><span class="k">{{ t().closing.pass.from[0] }}</span><span class="v">{{ t().closing.pass.from[1] }}</span></div>
                 <span class="route-line"></span>

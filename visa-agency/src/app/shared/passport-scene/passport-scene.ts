@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Tilt } from '../motion/tilt';
 
 // Laurel wreath around the crest: leaves along an arc, each turned to follow the circle.
 function laurel(radius: number, from: number, to: number, count: number): string[] {
@@ -13,6 +14,7 @@ function laurel(radius: number, from: number, to: number, count: number): string
 // .passport and .sheen are animated by the hero (features/home/home.ts).
 @Component({
   selector: 'app-passport-scene',
+  imports: [Tilt],
   templateUrl: './passport-scene.html',
   styleUrl: './passport-scene.sass',
   changeDetection: ChangeDetectionStrategy.OnPush,

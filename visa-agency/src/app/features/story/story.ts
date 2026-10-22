@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { I18n } from '../../shared/i18n/i18n';
 import { gsap, useMotion } from '../../shared/motion/motion';
+import { Tilt } from '../../shared/motion/tilt';
 
 @Component({
   selector: 'app-story',
-  imports: [],
+  imports: [Tilt],
   templateUrl: './story.html',
   styleUrl: './story.sass',
 })

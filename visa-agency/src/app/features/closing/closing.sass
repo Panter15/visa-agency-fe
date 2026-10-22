@@ -27,14 +27,55 @@
   width: min(100%, 600px)
   rotate: -3deg
   border-radius: 18px
+  // Navy card with a thin gold-foil edge, like the passports
   background: var(--ink)
   color: var(--paper)
-  box-shadow: 0 24px 48px rgba(15, 27, 45, 0.18)
+  border: 1px solid #c49a45
+  box-shadow: 0 24px 48px rgba(15, 27, 45, 0.18), inset 0 0 0 5px var(--ink), inset 0 0 0 6px rgba(196, 154, 69, 0.45)
+
+// Fine leather-like grain over the navy, and a gold foil stripe along the top
+.pass
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    inset: 0
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px)
+    background-size: 3px 3px
+    pointer-events: none
+
+  &::after
+    content: ''
+    position: absolute
+    inset: 0 0 auto
+    height: 4px
+    background: linear-gradient(90deg, #a8823a, #f3dc9a 35%, #c49a45 55%, #f7e6ad 78%, #9b7731)
 
 .pass-main
+  position: relative
   flex: 1
   min-width: 0
   padding: clamp(20px, 3vw, 32px)
+
+.pass-head
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+  gap: 12px
+
+.pass-crest
+  flex: 0 0 auto
+  width: 46px
+  height: 46px
+  fill: none
+  stroke: url(#et-gold)
+  stroke-width: 2.4
+  stroke-linecap: round
+
+  .check
+    stroke-width: 4
 
 .pass-label
   display: flex
@@ -45,7 +86,7 @@
   font-weight: 600
   letter-spacing: 0.18em
   text-transform: uppercase
-  color: var(--accent-light)
+  color: #d9b86a
 
 .route
   display: flex
@@ -60,7 +101,7 @@
 .route-line
   flex: 1
   min-width: 24px
-  border-top: 1.5px dashed var(--accent-light)
+  border-top: 1.5px dashed #d9b86a
 
 .pass-fields
   display: flex
@@ -111,14 +152,14 @@
 .stub-code
   font-family: var(--font-display)
   font-size: 1.5rem
-  color: var(--accent-light)
+  color: #d9b86a
   writing-mode: vertical-rl
 
 .barcode
   width: 34px
   height: 64px
-  background: repeating-linear-gradient(to bottom, var(--paper) 0 2px, transparent 2px 4px, var(--paper) 4px 5px, transparent 5px 8px)
-  opacity: 0.8
+  background: repeating-linear-gradient(to bottom, #d9b86a 0 2px, transparent 2px 4px, #d9b86a 4px 5px, transparent 5px 8px)
+  opacity: 0.85
 
 .actions
   grid-area: actions
