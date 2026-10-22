@@ -3,11 +3,12 @@ import { WhatsappGate } from '../../shared/consent/whatsapp-gate';
 import { I18n } from '../../shared/i18n/i18n';
 import { Icon } from '../../shared/icon/icon';
 import { gsap, useMotion } from '../../shared/motion/motion';
+import { Tilt } from '../../shared/motion/tilt';
 import { Words } from '../../shared/words/words';
 
 @Component({
   selector: 'app-closing',
-  imports: [Words, Icon, WhatsappGate],
+  imports: [Words, Icon, WhatsappGate, Tilt],
   templateUrl: './closing.html',
   styleUrl: './closing.sass',
 })

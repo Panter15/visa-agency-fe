@@ -3,106 +3,66 @@
 :host
   display: block
   container-type: inline-size
+  // Stamp ink: same blue as the passport's entry stamp (passport-open.sass)
+  --stamp-ink: #2f4f8f
 
-// Narrow: one column, title first
+// Same heading size as the other column titles in this section
+.board-title
+  margin: 0 0 28px
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem)
+
+// Narrow: one column. From 480px: two. From 780px: three.
 .board
   display: grid
   grid-template-columns: minmax(0, 1fr)
-  grid-template-areas: "title" "v0" "v1" "v2" "v3" "v4" "v5"
   gap: 18px
-  align-items: center
+  margin: 0
+  padding: 0
+  list-style: none
 
-// Medium: two columns under the title
 @container (min-width: 480px)
   .board
     grid-template-columns: repeat(2, minmax(0, 1fr))
-    grid-template-areas: "title title" "v0 v1" "v2 v3" "v4 v5"
 
-// Wide: the full 3x3 doodle sketch, title in the middle
 @container (min-width: 780px)
   .board
     grid-template-columns: repeat(3, minmax(0, 1fr))
-    grid-template-areas: "v0 v1 arrow" "v2 title v3" "stars v4 v5"
 
-// Uneven radii look hand-drawn; the offset solid shadow reads as a second pen stroke
-.board-title, .value
-  border: 2px solid var(--ink)
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px
-  box-shadow: 4px 4px 0 var(--ink)
-
-.board-title
-  grid-area: title
-  margin: 0
-  padding: 22px 12px
+// Double-line frame + a thin inner rule, like a consular entry stamp
+.stamp
+  position: relative
+  padding: 18px 20px 20px
+  border: 4px double var(--stamp-ink)
+  border-radius: 8px
+  color: var(--stamp-ink)
   text-align: center
-  font-family: var(--font-display)
-  font-size: clamp(1.3rem, 2vw, 1.7rem)
-  line-height: 1.15
-  background: var(--paper)
-  outline: 2px solid var(--ink)
-  outline-offset: 5px
-  transform: rotate(-2deg)
 
-.value
-  padding: 14px 16px
-  background: var(--paper)
+  &::after
+    content: ''
+    position: absolute
+    inset: 5px
+    border: 1px solid var(--stamp-ink)
+    border-radius: 4px
+    opacity: 0.35
+    pointer-events: none
 
-  &:nth-of-type(odd)
-    transform: rotate(-1.5deg)
-
-  &:nth-of-type(even)
-    transform: rotate(1.5deg)
-
-.value-title
-  display: flex
-  align-items: center
-  gap: 8px
-  margin: 0 0 6px
+.stamp-no
+  display: block
+  font-size: 0.72rem
   font-weight: 700
-  font-size: 0.85rem
-  letter-spacing: 0.08em
+  letter-spacing: 0.3em
+
+.stamp-title
+  margin: 8px 0 12px
+  padding-bottom: 12px
+  border-bottom: 1px solid currentColor
+  font-weight: 700
+  font-size: 1rem
+  letter-spacing: 0.16em
   text-transform: uppercase
 
-.value-icon
-  flex: 0 0 auto
-  color: var(--accent-text)
-
-.value-text
+.stamp-text
   margin: 0
   color: var(--ink-soft)
-  font-size: 0.85rem
-  line-height: 1.45
-
-// Doodles only make sense in the 3x3 sketch
-.doodle
-  display: none
-  width: 100%
-  justify-self: center
-  fill: none
-  stroke: var(--ink)
-  stroke-width: 2.5
-  stroke-linecap: round
-  stroke-linejoin: round
-
-.doodle-arrow
-  grid-area: arrow
-  max-width: 110px
-
-// The spark sits over the title's corner, like a pen flourish
-.doodle-spark
-  grid-area: title
-  align-self: start
-  justify-self: end
-  width: 34px
-  margin: -22px -18px 0 0
-  stroke: var(--accent-text)
-
-.doodle-stars
-  grid-area: stars
-  max-width: 90px
-  stroke: var(--accent-text)
-
-// After the base .doodle rule, so it wins
-@container (min-width: 780px)
-  .doodle
-    display: block
+  font-size: 0.92rem
+  line-height: 1.5

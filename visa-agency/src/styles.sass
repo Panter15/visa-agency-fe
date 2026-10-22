@@ -8,10 +8,26 @@
   // Darker accent for small text and behind light text: 5.25:1 on paper (WCAG AA). --accent is only 4.27:1.
   --accent-text: #2866a8
   --line: rgba(15, 27, 45, 0.14)
-  --font-display: 'Fraunces Variable', Georgia, serif
-  --font-body: 'Inter Variable', system-ui, sans-serif
+  // Option 1 (default): Ysabeau Office for everything
+  --font-display: 'Ysabeau Office Variable', system-ui, sans-serif
+  --font-body: 'Ysabeau Office Variable', system-ui, sans-serif
   --header-h: 76px
   --gutter: clamp(16px, 5vw, 64px)
+
+// Font options to compare, picked with ?font=… (see main.ts). Delete the unused ones once the owner chooses.
+// Option 2: Lora headings + Ysabeau Office text
+:root[data-font="lora"]
+  --font-display: 'Lora Variable', Georgia, serif
+
+// Option 3: Plus Jakarta Sans for everything
+:root[data-font="jakarta"]
+  --font-display: 'Plus Jakarta Sans Variable', system-ui, sans-serif
+  --font-body: 'Plus Jakarta Sans Variable', system-ui, sans-serif
+
+// The current fonts, for side-by-side comparison
+:root[data-font="original"]
+  --font-display: 'Fraunces Variable', Georgia, serif
+  --font-body: 'Inter Variable', system-ui, sans-serif
 
 @media (max-width: 900px)
   :root

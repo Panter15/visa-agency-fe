@@ -40,10 +40,18 @@ export class About {
         scrollTrigger: { trigger: root.querySelector('.body'), start: 'top 80%' },
       });
 
-      // Passport slides in open, then an officer-style rubber stamp comes down: ADMITTED.
+      // The passport arrives closed, opens on its spine to the visa page, then an officer-style rubber stamp
+      // comes down: ADMITTED. Opening = the front cover folds onto the spine (scaleX 1 → 0), then the inside of
+      // the cover with page 06 unfolds from it (0 → 1): a 2D page turn, since SVG has no per-element 3D.
       const center = { transformOrigin: '50% 50%' };
+      const spine = { svgOrigin: '240 165' };
+      gsap.set('.front-cover', { visibility: 'visible' });
+      gsap.set('.left-leaf', { scaleX: 0, ...spine });
       gsap.timeline({ scrollTrigger: { trigger: root.querySelector('.visual'), start: 'top 75%' } })
-        .from('.visual', { y: 50, rotation: -3, autoAlpha: 0, duration: 1, ease: 'power3.out' })
+        .from('.visual', { y: 50, autoAlpha: 0, duration: 1, ease: 'power3.out' })
+        .to('.front-cover', { scaleX: 0, ...spine, duration: 0.45, ease: 'power2.in' }, '+=0.15')
+        .set('.front-cover', { visibility: 'hidden' })
+        .to('.left-leaf', { scaleX: 1, ...spine, duration: 0.55, ease: 'power2.out' })
         // The stamp hovers above the page; its shadow gets sharper as it gets closer
         .fromTo('.stamper', { autoAlpha: 0, y: -160, scale: 1.25, ...center },
           { autoAlpha: 1, y: -40, scale: 1.12, duration: 0.6, ease: 'power2.out' }, '+=0.1')

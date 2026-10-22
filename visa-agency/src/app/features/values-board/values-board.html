@@ -1,19 +1,11 @@
-<!-- Values board (doodle style): value labels around a framed title, sketches in the gaps. -->
-<div class="board">
-    <h3 class="board-title">{{ t().about.valuesTitle }}</h3>
+<h3 class="board-title">{{ t().about.valuesTitle }}</h3>
+<ul class="board">
     @for (value of t().about.values; track value.title; let i = $index) {
-        <div class="value" [style.grid-area]="'v' + i">
-            <p class="value-title"><app-icon class="value-icon" [name]="value.icon" />{{ value.title }}</p>
-            <p class="value-text">{{ value.text }}</p>
-        </div>
+        <!-- Each value as an entry stamp, in the same blue ink as the passport's ADMITIDO stamp -->
+        <li class="stamp">
+            <span class="stamp-no" aria-hidden="true">Nº {{ (i + 1).toString().padStart(2, '0') }}</span>
+            <p class="stamp-title">{{ value.title }}</p>
+            <p class="stamp-text">{{ value.text }}</p>
+        </li>
     }
-    <svg class="doodle doodle-arrow" viewBox="0 0 120 60" aria-hidden="true">
-        <path d="M6 44c22-30 58-36 98-18M104 26l-14-10M104 26l-16 6" />
-    </svg>
-    <svg class="doodle doodle-spark" viewBox="0 0 60 60" aria-hidden="true">
-        <path d="M30 6v16M30 38v16M6 30h16M38 30h16M14 14l8 8M38 38l8 8M46 14l-8 8M22 38l-8 8" />
-    </svg>
-    <svg class="doodle doodle-stars" viewBox="0 0 100 100" aria-hidden="true">
-        <path d="m22 14 4 9 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1zM74 58l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1zM78 16v10M73 21h10M20 70v8M16 74h8" />
-    </svg>
-</div>
+</ul>

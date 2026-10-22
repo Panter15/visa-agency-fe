@@ -1,12 +1,10 @@
 import { Routes } from '@angular/router';
 import { Landing } from './features/landing/landing';
-import { authGuard } from './features/utils/guard/guard';
 
 
 export const routes: Routes = [
       { path: '', component: Landing },
-      { path: 'login', loadComponent: () => import('./features/login/login').then(m => m.Login) },
-      { path: 'admin-perspective', loadComponent: () => import('./features/admin-perspective/admin-perspective').then(m => m.AdminPerspective), canActivate: [authGuard] },
+      // /login and /admin-perspective come back (with authGuard) once those pages are built; they were empty placeholders.
       { path: 'privacidad', loadComponent: () => import('./features/legal/legal').then(m => m.Legal), data: { page: 'privacy' } },
       { path: 'terminos', loadComponent: () => import('./features/legal/legal').then(m => m.Legal), data: { page: 'terms' } },
       { path: 'reembolsos', loadComponent: () => import('./features/legal/legal').then(m => m.Legal), data: { page: 'refund' } },

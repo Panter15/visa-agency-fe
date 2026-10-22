@@ -1,12 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { I18n } from '../../shared/i18n/i18n';
-import { Icon } from '../../shared/icon/icon';
 import { gsap, useMotion } from '../../shared/motion/motion';
 
-// "Nuestros valores" as a doodle board: value labels around a framed title, sketches in the gaps.
+// "Nuestros valores": six values shown as passport entry stamps, under the commitments.
 @Component({
   selector: 'app-values-board',
-  imports: [Icon],
   templateUrl: './values-board.html',
   styleUrl: './values-board.sass',
 })
@@ -15,15 +13,22 @@ export class ValuesBoard {
 
   constructor() {
     useMotion(root => {
-      // Values land on the board one by one, each with its own small tilt
-      gsap.from(['.board-title', '.value', '.doodle'], {
+      gsap.from('.board-title', {
         y: 30,
         autoAlpha: 0,
-        rotation: () => gsap.utils.random(-10, 10),
-        duration: 0.7,
-        stagger: 0.07,
-        ease: 'back.out(1.7)',
+        duration: 0.8,
+        ease: 'power3.out',
         scrollTrigger: { trigger: root, start: 'top 80%' },
+      });
+      // Each stamp lands like a rubber stamp: slightly larger, then pressed flat onto the page
+      gsap.from('.stamp', {
+        // 1.06, not more: a bigger start size sticks out past a phone's edge until the stamp lands
+        scale: 1.06,
+        autoAlpha: 0,
+        duration: 0.35,
+        stagger: 0.12,
+        ease: 'power4.in',
+        scrollTrigger: { trigger: root, start: 'top 75%' },
       });
     });
   }
