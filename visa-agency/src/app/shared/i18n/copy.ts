@@ -97,7 +97,7 @@ const es = {
       { title: 'Profesionalismo', text: 'Llenado profesional del DS-160 y revisión de cada documento.' },
       { title: 'Acompañamiento', text: 'Contigo hasta que acudes a tu cita y recibes tu visa.' },
     ],
-    visual: 'Pasaporte abierto con sellos de entrada de varios países',
+    visual: 'Un niño abraza fuerte a su mamá',
   },
   trust: {
     title: 'Una agencia real, con personas reales.',
@@ -297,7 +297,7 @@ const en: Copy = {
       { title: 'Professionalism', text: 'Professional DS-160 filing and a review of every document.' },
       { title: 'Guidance', text: 'With you until you attend your appointment and get your visa.' },
     ],
-    visual: 'Open passport with entry stamps from several countries',
+    visual: 'A child holding his mother in a tight hug',
   },
   trust: {
     title: 'A real agency, with real people.',

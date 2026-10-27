@@ -1,7 +1,7 @@
 <footer class="site-footer">
     <app-logo class="brand inverse" [tagline]="true" />
     <div class="contact">
-        <a class="whatsapp" appWhatsappGate [href]="i18n.whatsappUrl()" target="_blank" rel="noopener">WhatsApp →</a>
+        <a class="social" appWhatsappGate [href]="i18n.whatsappUrl()" target="_blank" rel="noopener" aria-label="WhatsApp"><app-icon name="whatsapp" /></a>
         <a class="social" [href]="facebookUrl" target="_blank" rel="noopener" aria-label="Facebook"><app-icon name="facebook" /></a>
         <a class="social" [href]="instagramUrl" target="_blank" rel="noopener" aria-label="Instagram"><app-icon name="instagram" /></a>
     </div>

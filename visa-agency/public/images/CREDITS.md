@@ -9,5 +9,5 @@ All photos are free to use under the [Unsplash License](https://unsplash.com/lic
 | hero-golden.webp | Maarten van den Heuvel | https://unsplash.com/photos/gZXx8lKAb7Y |
 | hero-window.webp | Kornél Máhl | https://unsplash.com/photos/rLASmVucW4c |
 | story-night.webp | LARAM | https://unsplash.com/photos/BpTqCNotBLI |
-| about-stamps.webp | Henry Thong | https://unsplash.com/photos/htQznS-Rx7w |
+| about-family.webp | Xavier Mouton Photographie | https://unsplash.com/photos/MRWHSKimBJk |
 | closing-desk.webp | Jon Moore | https://unsplash.com/photos/5fIoyoKlz7A |

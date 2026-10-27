@@ -31,6 +31,10 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
           <circle cx="16.5" cy="9" r="2" />
           <path d="M3.5 20.5v-3.5a4.5 4.5 0 0 1 9 0v3.5M13 20.5v-2.5a3.5 3.5 0 0 1 7 0v2.5" />
         }
+        @case ('whatsapp') {
+          <path d="M3.5 20.5l1.3-4.6A8.5 8.5 0 1 1 8.2 19.2z" />
+          <path d="M9 8.3c.3-.6.8-.6 1.1 0l.6 1.4c.1.3 0 .6-.2.8l-.5.5a6 6 0 0 0 3 3l.5-.5c.2-.2.5-.3.8-.2l1.4.6c.6.3.6.8 0 1.1-.9.6-2 .7-3.1.2a8.5 8.5 0 0 1-4-4c-.5-1.1-.4-2.2.4-2.9z" />
+        }
         @case ('facebook') {
           <path d="M15.5 3.5H13a4 4 0 0 0-4 4V10H6.5v3.5H9v7h3.5v-7H15l.5-3.5h-3V8a1 1 0 0 1 1-1h2z" />
         }
