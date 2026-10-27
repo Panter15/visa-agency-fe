@@ -1,7 +1,7 @@
 :host
   display: block
 
-// Desktop: words + CTA on the left, the boarding pass fills the right
+// Desktop: words + CTA on the left, the boarding pass on its table fills the right
 .closing-section
   display: grid
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr)
@@ -18,148 +18,163 @@
   max-width: 15ch
   font-size: clamp(2.4rem, 6vw, 5.5rem)
 
-// Boarding pass
-.pass
+// The table the pass lies on (photo: public/images, see CREDITS.md)
+.desk
   grid-area: pass
   align-self: center
+  display: grid
+  place-items: center
+  width: 100%
+  max-width: 640px
   justify-self: center
-  display: flex
-  width: min(100%, 600px)
-  rotate: -3deg
-  border-radius: 18px
-  // Navy card with a thin gold-foil edge, like the passports
-  background: var(--ink)
-  color: var(--paper)
-  border: 1px solid #c49a45
-  box-shadow: 0 24px 48px rgba(15, 27, 45, 0.18), inset 0 0 0 5px var(--ink), inset 0 0 0 6px rgba(196, 154, 69, 0.45)
+  padding: clamp(40px, 7vw, 88px) clamp(12px, 3vw, 32px)
+  border-radius: 20px
+  // Photo set in the HTML: relative to <base href>, so it also works under GitHub Pages' sub-path
+  background: #3b2a1e center / cover
+  box-shadow: 0 24px 48px rgba(15, 27, 45, 0.18)
 
-// Fine leather-like grain over the navy, and a gold foil stripe along the top
+// Printed boarding pass: off-white card stock with a fine paper grain, navy airline band, black print
 .pass
-  position: relative
-  overflow: hidden
-
-  &::before
-    content: ''
-    position: absolute
-    inset: 0
-    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px)
-    background-size: 3px 3px
-    pointer-events: none
-
-  &::after
-    content: ''
-    position: absolute
-    inset: 0 0 auto
-    height: 4px
-    background: linear-gradient(90deg, #a8823a, #f3dc9a 35%, #c49a45 55%, #f7e6ad 78%, #9b7731)
-
-.pass-main
-  position: relative
-  flex: 1
-  min-width: 0
-  padding: clamp(20px, 3vw, 32px)
-
-.pass-head
+  --print: #1d2229
+  --muted: #6b7079
   display: flex
-  align-items: flex-start
-  justify-content: space-between
-  gap: 12px
+  width: 100%
+  rotate: -4deg
+  overflow: hidden
+  border-radius: 10px
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(115deg, #fffefb 0%, #f6f3ec 60%, #ece8df 100%)
+  color: var(--print)
+  // Paper resting on wood: a tight contact shadow plus a soft one
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 14px 28px rgba(0, 0, 0, 0.45)
 
-.pass-crest
-  flex: 0 0 auto
-  width: 46px
-  height: 46px
-  fill: none
-  stroke: url(#et-gold)
-  stroke-width: 2.4
-  stroke-linecap: round
-
-  .check
-    stroke-width: 4
-
-.pass-label
+.band
   display: flex
   align-items: center
   gap: 10px
-  margin: 0 0 20px
-  font-size: 0.75rem
+  min-height: 52px
+  padding: 10px clamp(14px, 2.4vw, 22px)
+  background: var(--ink)
+  color: #fff
+
+.brand
+  font-size: 0.78rem
+  white-space: nowrap
+  font-weight: 700
+  letter-spacing: 0.12em
+  text-transform: uppercase
+
+.pass-crest
+  flex: 0 0 auto
+  width: 30px
+  height: 30px
+  fill: none
+  stroke: url(#et-gold)
+  stroke-width: 3
+  stroke-linecap: round
+
+  .check
+    stroke-width: 5
+
+// On the stub's band; may wrap to two lines there
+.pass-label
+  display: flex
+  align-items: center
+  gap: 6px
+  font-size: 0.62rem
   font-weight: 600
-  letter-spacing: 0.18em
+  letter-spacing: 0.14em
+  line-height: 1.3
   text-transform: uppercase
   color: #d9b86a
 
+  app-icon
+    flex: 0 0 auto
+
+.pass-main
+  flex: 1
+  min-width: 0
+
+.body
+  padding: clamp(14px, 2.4vw, 22px)
+
 .route
   display: flex
-  align-items: center
-  gap: 16px
-  margin-bottom: 22px
-
-  .v
-    font-family: var(--font-display)
-    font-size: clamp(1.15rem, 2.4vw, 1.6rem)
+  align-items: flex-end
+  gap: 14px
+  margin-bottom: 18px
 
 .route-line
   flex: 1
-  min-width: 24px
-  border-top: 1.5px dashed #d9b86a
+  display: flex
+  align-items: center
+  gap: 6px
+  min-width: 48px
+  margin-bottom: 6px
+  color: var(--muted)
 
-.pass-fields
+  // Dashed flight path on both sides of the plane
+  &::before,
+  &::after
+    content: ''
+    flex: 1
+    border-top: 1.5px dashed #b9bcc2
+
+  app-icon
+    font-size: 0.8rem
+    rotate: 90deg
+
+.fields
   display: flex
   flex-wrap: wrap
-  gap: 14px 32px
+  gap: 12px 28px
+  padding-top: 14px
+  border-top: 1px solid #dddad2
 
 .k,
 .v
   display: block
 
 .k
-  margin-bottom: 4px
-  font-size: 0.68rem
+  margin-bottom: 3px
+  font-size: 0.62rem
+  font-weight: 600
   letter-spacing: 0.14em
   text-transform: uppercase
-  opacity: 0.6
+  color: var(--muted)
 
+// Printed values: bold, upper case, like a thermal printer
 .v
-  font-weight: 500
+  font-size: 0.92rem
+  font-weight: 700
+  letter-spacing: 0.03em
+  text-transform: uppercase
 
-// Torn-off stub, separated by a perforated line with two notches
+  &.big
+    font-size: clamp(1rem, 1.9vw, 1.3rem)
+    letter-spacing: 0.01em
+
+// 2D barcode (PDF417-like): uneven bars, broken into rows
+.barcode
+  display: block
+  height: 38px
+  margin-top: 18px
+  background: repeating-linear-gradient(0deg, transparent 0 5px, #f8f6f0 5px 6px), repeating-linear-gradient(90deg, var(--print) 0 2px, transparent 2px 3px, var(--print) 3px 4px, transparent 4px 7px, var(--print) 7px 10px, transparent 10px 11px, var(--print) 11px 12px, transparent 12px 15px)
+  opacity: 0.9
+
+// Tear-off stub behind a perforated line
 .pass-stub
-  position: relative
-  display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: space-between
-  gap: 16px
-  padding: clamp(20px, 3vw, 32px) 22px
-  border-left: 2px dashed rgba(245, 241, 234, 0.25)
+  flex: 0 0 30%
+  min-width: 0
+  border-left: 2px dotted #b9bcc2
 
-  &::before,
-  &::after
-    content: ''
-    position: absolute
-    left: -11px
-    width: 20px
-    height: 20px
-    border-radius: 50%
-    background: var(--paper)
-
-  &::before
-    top: -10px
-
-  &::after
-    bottom: -10px
+  .body
+    display: grid
+    gap: 12px
 
 .stub-code
-  font-family: var(--font-display)
-  font-size: 1.5rem
-  color: #d9b86a
-  writing-mode: vertical-rl
-
-.barcode
-  width: 34px
-  height: 64px
-  background: repeating-linear-gradient(to bottom, #d9b86a 0 2px, transparent 2px 4px, #d9b86a 4px 5px, transparent 5px 8px)
-  opacity: 0.85
+  font-size: 1.6rem
+  font-weight: 700
+  letter-spacing: 0.06em
 
 .actions
   grid-area: actions
@@ -182,13 +197,15 @@
     grid-template-columns: minmax(0, 1fr)
     grid-template-areas: "title" "pass" "actions"
 
-  .pass
+  .desk
     justify-self: start
-    rotate: none
 
 @media (max-width: 600px)
   .pass-stub
     display: none
+
+  .pass
+    rotate: -2deg
 
   .cta
     width: 100%

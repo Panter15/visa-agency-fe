@@ -81,13 +81,15 @@ export class Trust {
         scrollTrigger: { trigger: root.querySelector('.columns'), start: 'top 80%' },
       });
 
-      gsap.from('.embassy', {
-        y: 30,
-        autoAlpha: 0,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: root.querySelector('.embassy'), start: 'top 85%' },
-      });
+      root.querySelectorAll('.embassy').forEach(box =>
+        gsap.from(box, {
+          y: 30,
+          autoAlpha: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: box, start: 'top 85%' },
+        }),
+      );
 
       // Restore the real numbers if the animation is torn down mid-count
       return () =>

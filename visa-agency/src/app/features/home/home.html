@@ -8,6 +8,6 @@
             </a>
         </div>
     </div>
-    <app-passport-scene class="visual" [label]="t().hero.visual" />
+    <img class="visual photo" [src]="'images/hero-' + photo + '.webp'" width="960" height="1200" fetchpriority="high" [alt]="t().hero.photos[photo]" />
     <div class="scroll-hint" aria-hidden="true"><span></span></div>
 </section>

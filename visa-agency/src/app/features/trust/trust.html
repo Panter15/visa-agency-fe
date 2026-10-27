@@ -1,4 +1,4 @@
-<section class="trust-section">
+<section id="trust" class="trust-section">
     <div class="head">
         <h2 class="section-title title" [appWords]="t().trust.title"></h2>
     </div>
@@ -53,6 +53,14 @@
         <div>
             <p class="embassy-title">{{ t().trust.embassyTitle }}</p>
             <p class="embassy-text">{{ t().trust.embassy }}</p>
+        </div>
+    </aside>
+
+    <aside class="embassy" role="note">
+        <app-icon class="embassy-icon" name="alert" />
+        <div>
+            <p class="embassy-title">{{ t().trust.coyotesTitle }}</p>
+            <p class="embassy-text">{{ t().trust.coyotes }}</p>
         </div>
     </aside>
 </section>

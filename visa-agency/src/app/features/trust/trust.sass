@@ -131,13 +131,16 @@
   display: flex
   align-items: flex-start
   gap: 20px
-  max-width: 820px
   margin-top: clamp(64px, 10vh, 104px)
   padding: clamp(20px, 3vw, 32px)
   border: 1px solid #ecc879
   border-left: 5px solid #d9951f
   border-radius: 14px
   background: #fdf3df
+
+// Second warning sits close under the first, as one group
+.embassy + .embassy
+  margin-top: 20px
 
 .embassy-icon
   flex: 0 0 auto

@@ -7,9 +7,12 @@ const es = {
   whatsappMessage: 'Hola, quiero información sobre la asesoría de visa.',
   nav: {
     label: 'Principal',
+    home: 'Inicio',
     process: 'Proceso',
     about: 'Nosotros',
+    trust: 'Confianza',
     stories: 'Historias',
+    contact: 'Contacto',
     login: 'Ingresar',
     admin: 'Panel admin',
     logout: 'Cerrar sesión',
@@ -21,7 +24,12 @@ const es = {
     title: 'Tu historia continúa en Estados Unidos.',
     text: 'Te acompañamos en cada paso de tu visa, para que llegues a la entrevista con calma y claridad.',
     cta: 'Agenda una cita',
-    visual: 'Ilustración de un pasaporte azul marino con detalles dorados y el emblema de Easytravel Visa',
+    photos: {
+      city: 'Los rascacielos de Manhattan al anochecer, vistos desde el río',
+      empire: 'El Empire State de Nueva York al atardecer',
+      golden: 'El puente Golden Gate de San Francisco sobre el mar',
+      window: 'Vista desde la ventanilla de un avión: el ala sobre las nubes al anochecer',
+    },
   },
   story: {
     lines: [
@@ -31,8 +39,7 @@ const es = {
       'Nervios antes de la entrevista.',
       'No tienes que vivirlo solo.',
     ],
-    visual: 'Un formulario lleno de dudas que, con acompañamiento, queda completo',
-    signed: 'Revisado contigo · Easytravel Visa',
+    visual: 'Un hombre agobiado frente a la pantalla de su computadora, a medianoche',
   },
   journey: {
     title: 'Cinco pasos. Una sola compañía.',
@@ -90,8 +97,7 @@ const es = {
       { title: 'Profesionalismo', text: 'Llenado profesional del DS-160 y revisión de cada documento.' },
       { title: 'Acompañamiento', text: 'Contigo hasta que acudes a tu cita y recibes tu visa.' },
     ],
-    visual: 'Pasaporte abierto con una visa de Estados Unidos y un sello de entrada',
-    stamp: 'ADMITIDO',
+    visual: 'Un niño abraza fuerte a su mamá',
   },
   trust: {
     title: 'Una agencia real, con personas reales.',
@@ -125,6 +131,8 @@ const es = {
     ],
     embassyTitle: 'Atención: sobre certificaciones',
     embassy: 'La Embajada de Estados Unidos no certifica ni avala a ninguna agencia, y ninguna tiene acceso preferente a citas o resultados. Desconfía de quien te lo prometa. Nosotros preferimos mostrarte quiénes somos y cómo trabajamos.',
+    coyotesTitle: 'Cuidado con los coyotes',
+    coyotes: 'Nadie puede venderte un cruce seguro ni una vida en Estados Unidos. Los coyotes cobran miles de dólares por cruzar la frontera sin papeles, y muchas personas pierden su dinero, quedan en manos del crimen organizado o arriesgan la vida. Además, una entrada ilegal puede cerrarte la puerta a cualquier visa por años. Nosotros solo trabajamos por la vía legal: tu visa, tu cita y tu entrevista.',
   },
   testimonials: {
     title: 'Historias que ya continuaron.',
@@ -199,9 +207,12 @@ const en: Copy = {
   whatsappMessage: 'Hi, I would like information about visa guidance.',
   nav: {
     label: 'Main',
+    home: 'Home',
     process: 'Process',
     about: 'About',
+    trust: 'Trust',
     stories: 'Stories',
+    contact: 'Contact',
     login: 'Log in',
     admin: 'Admin panel',
     logout: 'Log out',
@@ -213,7 +224,12 @@ const en: Copy = {
     title: 'Your story continues in the United States.',
     text: 'We walk with you through every step of your visa, so you arrive at your interview calm and clear.',
     cta: 'Book a consultation',
-    visual: 'Illustration of a navy passport with gold details and the Easytravel Visa emblem',
+    photos: {
+      city: 'The Manhattan skyline at dusk, seen from the river',
+      empire: 'The Empire State Building in New York at sunset',
+      golden: 'San Francisco’s Golden Gate Bridge over the sea',
+      window: 'View from an airplane window: the wing above the clouds at dusk',
+    },
   },
   story: {
     lines: [
@@ -223,8 +239,7 @@ const en: Copy = {
       'Nerves before the interview.',
       'You don’t have to go through it alone.',
     ],
-    visual: 'A form full of doubts that, with guidance, ends up complete',
-    signed: 'Reviewed with you · Easytravel Visa',
+    visual: 'A man overwhelmed in front of his computer screen at midnight',
   },
   journey: {
     title: 'Five steps. One companion.',
@@ -282,8 +297,7 @@ const en: Copy = {
       { title: 'Professionalism', text: 'Professional DS-160 filing and a review of every document.' },
       { title: 'Guidance', text: 'With you until you attend your appointment and get your visa.' },
     ],
-    visual: 'Open passport with a United States visa and an entry stamp',
-    stamp: 'ADMITTED',
+    visual: 'A child holding his mother in a tight hug',
   },
   trust: {
     title: 'A real agency, with real people.',
@@ -314,6 +328,8 @@ const en: Copy = {
     ],
     embassyTitle: 'Warning: about certifications',
     embassy: 'The U.S. Embassy does not certify or endorse any agency, and none has preferential access to appointments or outcomes. Be wary of anyone who promises that. We would rather show you who we are and how we work.',
+    coyotesTitle: 'Beware of coyotes',
+    coyotes: 'No one can sell you a safe crossing or a life in the United States. Smugglers, known as coyotes, charge thousands of dollars to cross the border without papers, and many people lose their money, end up in the hands of organized crime, or risk their lives. An illegal entry can also bar you from any visa for years. We only work the legal way: your visa, your appointment, your interview.',
   },
   testimonials: {
     title: 'Stories that already moved forward.',
