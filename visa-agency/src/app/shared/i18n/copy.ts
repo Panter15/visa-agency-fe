@@ -31,7 +31,7 @@ const es = {
       'Nervios antes de la entrevista.',
       'No tienes que vivirlo solo.',
     ],
-    visual: 'Manos escribiendo en una laptop, llenando un formulario en línea',
+    visual: 'Un hombre agobiado frente a la pantalla de su computadora, a medianoche',
   },
   journey: {
     title: 'Cinco pasos. Una sola compañía.',
@@ -221,7 +221,7 @@ const en: Copy = {
       'Nerves before the interview.',
       'You don’t have to go through it alone.',
     ],
-    visual: 'Hands typing on a laptop, filling in an online form',
+    visual: 'A man overwhelmed in front of his computer screen at midnight',
   },
   journey: {
     title: 'Five steps. One companion.',
