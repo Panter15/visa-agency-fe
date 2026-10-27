@@ -123,6 +123,8 @@ const es = {
     ],
     embassyTitle: 'Atención: sobre certificaciones',
     embassy: 'La Embajada de Estados Unidos no certifica ni avala a ninguna agencia, y ninguna tiene acceso preferente a citas o resultados. Desconfía de quien te lo prometa. Nosotros preferimos mostrarte quiénes somos y cómo trabajamos.',
+    coyotesTitle: 'Cuidado con los coyotes',
+    coyotes: 'Nadie puede venderte un cruce seguro ni una vida en Estados Unidos. Los coyotes cobran miles de dólares por cruzar la frontera sin papeles, y muchas personas pierden su dinero, quedan en manos del crimen organizado o arriesgan la vida. Además, una entrada ilegal puede cerrarte la puerta a cualquier visa por años. Nosotros solo trabajamos por la vía legal: tu visa, tu cita y tu entrevista.',
   },
   testimonials: {
     title: 'Historias que ya continuaron.',
@@ -310,6 +312,8 @@ const en: Copy = {
     ],
     embassyTitle: 'Warning: about certifications',
     embassy: 'The U.S. Embassy does not certify or endorse any agency, and none has preferential access to appointments or outcomes. Be wary of anyone who promises that. We would rather show you who we are and how we work.',
+    coyotesTitle: 'Beware of coyotes',
+    coyotes: 'No one can sell you a safe crossing or a life in the United States. Smugglers, known as coyotes, charge thousands of dollars to cross the border without papers, and many people lose their money, end up in the hands of organized crime, or risk their lives. An illegal entry can also bar you from any visa for years. We only work the legal way: your visa, your appointment, your interview.',
   },
   testimonials: {
     title: 'Stories that already moved forward.',
