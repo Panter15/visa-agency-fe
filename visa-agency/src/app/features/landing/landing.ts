@@ -25,16 +25,26 @@ export class Landing {
     afterNextRender(() => {
       if (!matchMedia(MOTION_OK).matches) return;
 
-      // Menu links (/#about…) scroll through Lenis: a native jump would be pulled back by its own scroll position.
-      // Offset = the fixed header, like scroll-padding-top does for native scrolling.
-      const header = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 0;
-      const lenis = new Lenis({ anchors: { offset: -header } });
+      const lenis = new Lenis();
       lenis.on('scroll', ScrollTrigger.update);
       const tick = (time: number) => lenis.raf(time * 1000);
       gsap.ticker.add(tick);
       gsap.ticker.lagSmoothing(0);
 
+      // In-page links (…/#about) scroll through Lenis: a native jump would be pulled back by its own scroll position.
+      // Matched by path, not Lenis' `anchors` option, which misses hrefs under a base path (/visa-agency-fe/#about).
+      // Offset = the fixed header, like scroll-padding-top does for native scrolling.
+      const header = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 0;
+      const onClick = (event: MouseEvent) => {
+        const link = (event.target as Element).closest?.('a[href*="#"]') as HTMLAnchorElement | null;
+        if (!link || link.pathname !== location.pathname || !link.hash) return;
+        const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+        if (target) lenis.scrollTo(target, { offset: -header });
+      };
+      document.addEventListener('click', onClick);
+
       destroyRef.onDestroy(() => {
+        document.removeEventListener('click', onClick);
         gsap.ticker.remove(tick);
         lenis.destroy();
       });

@@ -10,3 +10,4 @@ All photos are free to use under the [Unsplash License](https://unsplash.com/lic
 | hero-window.webp | Kornél Máhl | https://unsplash.com/photos/rLASmVucW4c |
 | story-night.webp | LARAM | https://unsplash.com/photos/BpTqCNotBLI |
 | about-stamps.webp | Henry Thong | https://unsplash.com/photos/htQznS-Rx7w |
+| closing-desk.webp | Jon Moore | https://unsplash.com/photos/5fIoyoKlz7A |
