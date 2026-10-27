@@ -7,9 +7,12 @@ const es = {
   whatsappMessage: 'Hola, quiero información sobre la asesoría de visa.',
   nav: {
     label: 'Principal',
+    home: 'Inicio',
     process: 'Proceso',
     about: 'Nosotros',
+    trust: 'Confianza',
     stories: 'Historias',
+    contact: 'Contacto',
     login: 'Ingresar',
     admin: 'Panel admin',
     logout: 'Cerrar sesión',
@@ -21,7 +24,12 @@ const es = {
     title: 'Tu historia continúa en Estados Unidos.',
     text: 'Te acompañamos en cada paso de tu visa, para que llegues a la entrevista con calma y claridad.',
     cta: 'Agenda una cita',
-    visual: 'Vista desde la ventanilla de un avión: el ala sobre las nubes al anochecer',
+    photos: {
+      city: 'Los rascacielos de Manhattan al anochecer, vistos desde el río',
+      empire: 'El Empire State de Nueva York al atardecer',
+      golden: 'El puente Golden Gate de San Francisco sobre el mar',
+      window: 'Vista desde la ventanilla de un avión: el ala sobre las nubes al anochecer',
+    },
   },
   story: {
     lines: [
@@ -199,9 +207,12 @@ const en: Copy = {
   whatsappMessage: 'Hi, I would like information about visa guidance.',
   nav: {
     label: 'Main',
+    home: 'Home',
     process: 'Process',
     about: 'About',
+    trust: 'Trust',
     stories: 'Stories',
+    contact: 'Contact',
     login: 'Log in',
     admin: 'Admin panel',
     logout: 'Log out',
@@ -213,7 +224,12 @@ const en: Copy = {
     title: 'Your story continues in the United States.',
     text: 'We walk with you through every step of your visa, so you arrive at your interview calm and clear.',
     cta: 'Book a consultation',
-    visual: 'View from an airplane window: the wing above the clouds at dusk',
+    photos: {
+      city: 'The Manhattan skyline at dusk, seen from the river',
+      empire: 'The Empire State Building in New York at sunset',
+      golden: 'San Francisco’s Golden Gate Bridge over the sea',
+      window: 'View from an airplane window: the wing above the clouds at dusk',
+    },
   },
   story: {
     lines: [

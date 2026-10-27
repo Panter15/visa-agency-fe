@@ -38,6 +38,8 @@
 
 html
   scroll-padding-top: var(--header-h)
+  // Keeps the scrollbar's space when the menu locks scrolling, so the layout doesn't shift under a menu jump
+  scrollbar-gutter: stable
 
 html.menu-locked
   overflow: hidden
@@ -132,7 +134,7 @@ html.lenis, html.lenis body
 
 /* Thumb-sized tap areas (44px, WCAG 2.5.5) for the small header/footer controls on touch screens */
 @media (pointer: coarse), (max-width: 900px)
-  .site-header .brand, .site-header .lang, .site-header .bar-cta, .site-footer .whatsapp, .site-footer .legal-links a
+  .site-header .brand, .site-header .lang, .site-header .bar-cta, .site-footer .whatsapp, .site-footer .social, .site-footer .legal-links a
     display: inline-flex
     align-items: center
     min-height: 44px

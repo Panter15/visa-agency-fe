@@ -25,7 +25,10 @@ export class Landing {
     afterNextRender(() => {
       if (!matchMedia(MOTION_OK).matches) return;
 
-      const lenis = new Lenis();
+      // Menu links (/#about…) scroll through Lenis: a native jump would be pulled back by its own scroll position.
+      // Offset = the fixed header, like scroll-padding-top does for native scrolling.
+      const header = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 0;
+      const lenis = new Lenis({ anchors: { offset: -header } });
       lenis.on('scroll', ScrollTrigger.update);
       const tick = (time: number) => lenis.raf(time * 1000);
       gsap.ticker.add(tick);

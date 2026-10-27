@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ServiceSession } from '../../features/shared-service/service-session';
 import { PublicData } from '../api/public-data';
@@ -27,9 +27,6 @@ export class Header {
   protected readonly hasStories = computed(() => this.stories().length > 0);
 
   constructor() {
-    // Stop the page from scrolling behind the open mobile menu.
-    effect(() => document.documentElement.classList.toggle('menu-locked', this.menuOpen()));
-
     useMotion(root => {
       const header = root.querySelector('.site-header')!;
       gsap.from(header, { yPercent: -100, autoAlpha: 0, duration: 0.9, ease: 'power3.out' });
@@ -51,11 +48,18 @@ export class Header {
   }
 
   toggleMenu() {
-    this.menuOpen.update(open => !open);
+    this.setMenu(!this.menuOpen());
   }
 
   closeMenu() {
-    this.menuOpen.set(false);
+    this.setMenu(false);
+  }
+
+  // Stop the page from scrolling behind the open mobile menu. Toggled right away, not in an effect:
+  // a menu link's click reaches Lenis next, and it can't scroll to the section while the page is still locked.
+  private setMenu(open: boolean) {
+    this.menuOpen.set(open);
+    document.documentElement.classList.toggle('menu-locked', open);
   }
 
   logout() {

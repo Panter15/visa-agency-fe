@@ -31,6 +31,14 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
           <circle cx="16.5" cy="9" r="2" />
           <path d="M3.5 20.5v-3.5a4.5 4.5 0 0 1 9 0v3.5M13 20.5v-2.5a3.5 3.5 0 0 1 7 0v2.5" />
         }
+        @case ('facebook') {
+          <path d="M15.5 3.5H13a4 4 0 0 0-4 4V10H6.5v3.5H9v7h3.5v-7H15l.5-3.5h-3V8a1 1 0 0 1 1-1h2z" />
+        }
+        @case ('instagram') {
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <path d="M17.5 6.5h.01" />
+        }
         @case ('leaf') {
           <path d="M12 21.5v-5M12 16.5 6 18l1-3-4-3.5 2-.5-1-4 3.5 1.5L8 6l2 1.5L12 2.5l2 5 2-1.5.5 2.5 3.5-1.5-1 4 2 .5-4 3.5 1 3z" />
         }

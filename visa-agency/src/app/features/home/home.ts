@@ -5,6 +5,12 @@ import { Icon } from '../../shared/icon/icon';
 import { gsap, useMotion } from '../../shared/motion/motion';
 import { Words } from '../../shared/words/words';
 
+// Hero preview: ?hero=empire | golden | window switches the photo (default: Manhattan at dusk).
+// Once the owner picks one, keep it and delete the other files in public/images.
+const HERO_PHOTOS = ['city', 'empire', 'golden', 'window'] as const;
+type HeroPhoto = (typeof HERO_PHOTOS)[number];
+const heroParam = new URLSearchParams(location.search).get('hero') as HeroPhoto;
+
 @Component({
   selector: 'app-home',
   imports: [Words, Icon, WhatsappGate],
@@ -14,6 +20,7 @@ import { Words } from '../../shared/words/words';
 export class Home {
   protected readonly i18n = inject(I18n);
   protected readonly t = this.i18n.t;
+  protected readonly photo: HeroPhoto = HERO_PHOTOS.includes(heroParam) ? heroParam : 'city';
 
   constructor() {
     useMotion((_root, { desktop }) => {
