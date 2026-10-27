@@ -41,7 +41,14 @@
   .about-section
     grid-template-columns: minmax(0, 1fr)
     grid-template-areas: "head" "body" "visual"
+    row-gap: 32px
 
+  // Stacked: the title can use the full width, and the grid gap alone spaces text and photo
+  .title
+    max-width: none
+
+  .text
+    margin-bottom: 0
 
   .visual
     justify-self: center
