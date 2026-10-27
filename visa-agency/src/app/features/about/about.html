@@ -6,6 +6,5 @@
         <p class="lead">{{ t().about.lead }}</p>
         <p class="text">{{ t().about.body }}</p>
     </div>
-    <app-passport-open class="visual" [label]="t().about.visual" [stampWord]="t().about.stamp" [date]="stampDate()" />
-
+    <img class="visual photo" src="images/about-stamps.webp" width="1000" height="667" loading="lazy" [alt]="t().about.visual" />
 </section>

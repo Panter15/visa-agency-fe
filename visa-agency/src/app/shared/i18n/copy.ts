@@ -21,7 +21,7 @@ const es = {
     title: 'Tu historia continúa en Estados Unidos.',
     text: 'Te acompañamos en cada paso de tu visa, para que llegues a la entrevista con calma y claridad.',
     cta: 'Agenda una cita',
-    visual: 'Ilustración de un pasaporte azul marino con detalles dorados y el emblema de Easytravel Visa',
+    visual: 'Vista desde la ventanilla de un avión: el ala sobre las nubes al anochecer',
   },
   story: {
     lines: [
@@ -31,8 +31,7 @@ const es = {
       'Nervios antes de la entrevista.',
       'No tienes que vivirlo solo.',
     ],
-    visual: 'Un formulario lleno de dudas que, con acompañamiento, queda completo',
-    signed: 'Revisado contigo · Easytravel Visa',
+    visual: 'Manos escribiendo en una laptop, llenando un formulario en línea',
   },
   journey: {
     title: 'Cinco pasos. Una sola compañía.',
@@ -90,8 +89,7 @@ const es = {
       { title: 'Profesionalismo', text: 'Llenado profesional del DS-160 y revisión de cada documento.' },
       { title: 'Acompañamiento', text: 'Contigo hasta que acudes a tu cita y recibes tu visa.' },
     ],
-    visual: 'Pasaporte abierto con una visa de Estados Unidos y un sello de entrada',
-    stamp: 'ADMITIDO',
+    visual: 'Pasaporte abierto con sellos de entrada de varios países',
   },
   trust: {
     title: 'Una agencia real, con personas reales.',
@@ -213,7 +211,7 @@ const en: Copy = {
     title: 'Your story continues in the United States.',
     text: 'We walk with you through every step of your visa, so you arrive at your interview calm and clear.',
     cta: 'Book a consultation',
-    visual: 'Illustration of a navy passport with gold details and the Easytravel Visa emblem',
+    visual: 'View from an airplane window: the wing above the clouds at dusk',
   },
   story: {
     lines: [
@@ -223,8 +221,7 @@ const en: Copy = {
       'Nerves before the interview.',
       'You don’t have to go through it alone.',
     ],
-    visual: 'A form full of doubts that, with guidance, ends up complete',
-    signed: 'Reviewed with you · Easytravel Visa',
+    visual: 'Hands typing on a laptop, filling in an online form',
   },
   journey: {
     title: 'Five steps. One companion.',
@@ -282,8 +279,7 @@ const en: Copy = {
       { title: 'Professionalism', text: 'Professional DS-160 filing and a review of every document.' },
       { title: 'Guidance', text: 'With you until you attend your appointment and get your visa.' },
     ],
-    visual: 'Open passport with a United States visa and an entry stamp',
-    stamp: 'ADMITTED',
+    visual: 'Open passport with entry stamps from several countries',
   },
   trust: {
     title: 'A real agency, with real people.',
